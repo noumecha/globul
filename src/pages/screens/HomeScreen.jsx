@@ -11,7 +11,7 @@ export default function HomeScreen()
             title="Go to profile page"
             />        
             <View>
-                <Text style={styles.txt}>Globul Project [by Noumecha Spaker]</Text>
+                <Text style={styles.txt}>Globul Project [tmc]</Text>
                 <StatusBar style="auto" />
             </View>
         </View>
@@ -22,12 +22,14 @@ const styles = StyleSheet.create({
   container: {
     top: 0,
     flex: 1,
-    backgroundColor: '#f00',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
   txt: {
-    backgroundColor: '#fff',
+    backgroundColor: '#E42217',
+    color: '#fff',
+    fontSize: 16,
     padding: 10,
     borderRadius: 20,
   }

@@ -1,14 +1,11 @@
 import React from "react";
 import { Text } from "react-native"
 
-const ProfileScreen = ({ navigation, route }) => 
+export default function ProfileScreen()
 {
-
     return (
         <Text>
             this is {route.params.name} profile
         </Text>        
     )
-
 }
-export default ProfileScreen
