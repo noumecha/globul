@@ -1,16 +1,34 @@
 import React from "react";
-import { Button } from "react-native";
+import { StatusBar } from 'expo-status-bar';
+import { Button, StyleSheet, Text, View, _View } from 'react-native';
 
-const HomeScreen = ({ navigation }) => 
+export default function HomeScreen()
 {
     return (
-        <Button 
+        <View style={styles.container}>
+            <Text>Home Page</Text>
+            <Button 
             title="Go to profile page"
-            onPress={() =>
-                navigation.navigate('Profile', { name:'John' })
-            }
-        />
+            />        
+            <View>
+                <Text style={styles.txt}>Globul Project [by Noumecha Spaker]</Text>
+                <StatusBar style="auto" />
+            </View>
+        </View>
     )
 }
 
-export default HomeScreen;
+const styles = StyleSheet.create({
+  container: {
+    top: 0,
+    flex: 1,
+    backgroundColor: '#f00',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  txt: {
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 20,
+  }
+});
