@@ -11,7 +11,7 @@ export default function App() {
   return (
     <NavigationContainer>
         <View style={styles.container}>
-          <Text>Globul Project [by Noumecha Spaker]</Text>
+          <Text style={styles.txt}>Globul Project [by Noumecha Spaker]</Text>
           <StatusBar style="auto" />
         </View>
     </NavigationContainer>
@@ -21,8 +21,14 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    top: 0,
     backgroundColor: '#f00',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  txt: {
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 20,
+  }
 });
