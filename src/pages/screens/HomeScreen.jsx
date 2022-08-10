@@ -1,8 +1,8 @@
 import React from "react";
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View, _View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
-export default function HomeScreen()
+const HomeScreen = () =>
 {
     return (
         <View style={styles.container}>
@@ -18,6 +18,7 @@ export default function HomeScreen()
     )
 }
 
+export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     top: 0,
@@ -30,6 +31,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#E42217',
     color: '#fff',
     fontSize: 16,
+    marginTop: 10,
     padding: 10,
     borderRadius: 20,
   }

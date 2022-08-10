@@ -1,11 +1,39 @@
-import React from "react";
-import { Text } from "react-native"
+import React from "react"
+import { StatusBar } from 'expo-status-bar';
+import { Button, StyleSheet, View, Text } from "react-native"
 
-export default function LoginScreen()
+const LoginScreen = () =>
 {
     return (
-        <Text>
-            this is Login
-        </Text>        
+        <View style={styles.logScreen}>
+            <Text>Login Page</Text>
+            <Button 
+            title="Go to other Page"
+            />        
+            <View>
+                <Text style={styles.txt}>Globul Project [tmc]</Text>
+                <StatusBar style="auto" />
+            </View>
+        </View>
     )
 }
+
+export default LoginScreen;
+
+const styles = StyleSheet.create({
+    logScreen: {
+      top: 0,
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    txt: {
+      backgroundColor: '#E42217',
+      color: '#fff',
+      fontSize: 16,
+      marginTop: 10,
+      padding: 10,
+      borderRadius: 20,
+    }
+  });
