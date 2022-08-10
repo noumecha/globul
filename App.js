@@ -1,4 +1,5 @@
 //import 'react-native-gesture-handler'
+// the bellow Navigation Container help us to make navigations between screens in this project
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Icon } from 'react-native-elements/dist/icons/Icon';
@@ -19,28 +20,16 @@ export default function App() {
           },
           headerTintColor: '#fff'
         }} 
-        initialRouteName='Home'>
+        initialRouteName='Login'>
         <Stack.Screen 
           name="Home" 
-          component={HomeScreen} 
+          component={HomeScreen}
+          options = {{ title: 'Home' }}
         />
         <Stack.Screen 
           name="Login" 
           component={LoginScreen} 
-        />
-        <Stack.Screen 
-          name="Profile" 
-          component={ProfileScreen}
-          options = {{
-            headerRight: () => (
-              <Icon
-                name="plus"
-                type="feather"
-                color="#fff"
-                style={style.headerIcon}
-              />
-            )
-          }}
+          options = {{ title: 'Login' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

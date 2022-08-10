@@ -1,5 +1,6 @@
 import React from "react"
 import { StatusBar } from 'expo-status-bar';
+import CustButton from '../../components/CustButton'
 import { Button, StyleSheet, View, Text } from "react-native"
 
 const LoginScreen = () =>
@@ -9,11 +10,8 @@ const LoginScreen = () =>
             <Text>Login Page</Text>
             <Button 
             title="Go to other Page"
-            />        
-            <View>
-                <Text style={styles.txt}>Globul Project [tmc]</Text>
-                <StatusBar style="auto" />
-            </View>
+            />
+            <CustButton />
         </View>
     )
 }
