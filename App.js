@@ -7,6 +7,7 @@ import { StyleSheet } from 'react-native'
 import HomeScreen from './src/pages/screens/HomeScreen';
 import ProfileScreen from './src/pages/screens/ProfileScreen'
 import LoginScreen from './src/pages/screens/LoginScreen'
+import TestScreen from './src/pages/screens/tests/TestScreen'
 
 const Stack = createNativeStackNavigator()
 
@@ -20,7 +21,12 @@ export default function App() {
           },
           headerTintColor: '#fff'
         }} 
-        initialRouteName='Login'>
+        initialRouteName='Test'>
+        <Stack.Screen 
+          name="Test" 
+          component={TestScreen}
+          options = {{ title: 'TestPage' }}
+        />
         <Stack.Screen 
           name="Home" 
           component={HomeScreen}
