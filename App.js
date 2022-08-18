@@ -2,11 +2,10 @@
 // the bellow Navigation Container help us to make navigations between screens in this project
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Icon } from 'react-native-elements/dist/icons/Icon';
-import { StyleSheet } from 'react-native'
-import HomeScreen from './src/pages/screens/HomeScreen';
-import ProfileScreen from './src/pages/screens/ProfileScreen'
+import { Button, StyleSheet } from 'react-native'
+import HomeScreen from './src/pages/screens/HomeScreen'
 import LoginScreen from './src/pages/screens/LoginScreen'
+import DetailsScreen from './src/pages/screens/tests/Details';
 import TestScreen from './src/pages/screens/tests/TestScreen'
 
 const Stack = createNativeStackNavigator()
@@ -21,16 +20,31 @@ export default function App() {
           },
           headerTintColor: '#fff'
         }} 
-        initialRouteName='Test'>
+        initialRouteName='Home'>
+        <Stack.Screen 
+          name="Home" 
+          component={HomeScreen}
+          options = {{ title: 'Home' }}
+        />
         <Stack.Screen 
           name="Test" 
           component={TestScreen}
           options = {{ title: 'TestPage' }}
         />
         <Stack.Screen 
-          name="Home" 
-          component={HomeScreen}
-          options = {{ title: 'Home' }}
+          name="Details" 
+          component={DetailsScreen}
+          options = {({route}) => ({
+            headerRight: () => {
+              return (
+                <Button
+                  title='Buy'
+                  onPress={() =>{}}
+                  disabled={route.params.stock === 0}
+                />
+              )
+            }
+          })}
         />
         <Stack.Screen 
           name="Login" 

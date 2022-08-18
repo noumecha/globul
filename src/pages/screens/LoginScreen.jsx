@@ -1,37 +1,17 @@
 import React from "react"
 import { StatusBar } from 'expo-status-bar';
 import CustButton from '../../components/CustButton'
-import { Button, StyleSheet, View, Text } from "react-native"
+import { Button, View, Text } from "react-native"
+import styles from "./tests/styles";
+import Box from "./tests/Box"
 
-const LoginScreen = () =>
+export default function LoginScreen({navigation})
 {
     return (
-        <View style={styles.logScreen}>
-            <Text>Login Page</Text>
-            <Button 
-            title="Go to other Page"
-            />
-            <CustButton />
+        <View style={styles.container}>
+            <StatusBar barStyle="dark-content"/>
+            <Box>Login Page</Box>
+            <CustButton>Login Screen</CustButton>
         </View>
     )
 }
-
-export default LoginScreen;
-
-const styles = StyleSheet.create({
-    logScreen: {
-      top: 0,
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    txt: {
-      backgroundColor: '#E42217',
-      color: '#fff',
-      fontSize: 16,
-      marginTop: 10,
-      padding: 10,
-      borderRadius: 20,
-    }
-  });

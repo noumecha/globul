@@ -2,13 +2,13 @@ import React from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native'
 
-const CustButton = () => {
+export default function CustButton({children}){
 
     return (
-        <View>
-            <Text style={styles.txt}> My Button </Text>
-            <StatusBar style="auto" />
-        </View>
+      <View>
+        <Text style={styles.txt}> {children} </Text>
+        <StatusBar style="auto" />
+      </View>
     )
 }
 
@@ -21,5 +21,4 @@ const styles = StyleSheet.create({
       padding: 10,
       borderRadius: 20,
     }
-  });
-export default CustButton;
+});

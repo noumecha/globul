@@ -1,42 +1,31 @@
 import React from "react";
-import { StatusBar } from 'expo-status-bar';
 import CustButton from '../../components/CustButton'
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
+import styles from "./tests/styles";
+import Box from "./tests/Box";
 
-const HomeScreen = () =>
+export default function  HomeScreen({navigation})
 {
     return (
         <View style={styles.container}>
-          <View style={styles.box}>
-            <Text style={styles.boxText}>Home Page</Text>
-          </View>       
-          <CustButton/>
+          <Box>Home Page</Box>       
+          <CustButton>Home</CustButton>
+          <Button
+            title="test"
+            onPress={() => navigation.navigate('Test')}
+          />
+          <Button 
+            title="Login"
+            onPress={() => navigation.navigate('Login')}
+          />
+          <Button 
+            title="Details 1"
+            onPress={() => navigation.navigate('Details', {title: "item 1"})}
+          />
+          <Button 
+            title="Details 2"
+            onPress={() => navigation.navigate('Details', {title: "item 2"})}
+          />
         </View>
     )
 }
-
-export default HomeScreen;
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'ghostwhite',
-    ...Platform.select({
-        ios: { paddingTop: 20 },
-        android: { paddingTop: StatusBar.currentHeight },
-    }),
-  },
-  box: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'red',
-  },
-  boxText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-});
