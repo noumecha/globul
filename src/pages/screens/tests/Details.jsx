@@ -6,7 +6,7 @@ import Box from './Box'
 
 export default function  DetailsScreen({navigation,route}) 
 {
-    const {content,title} = route.params
+    const {title} = route.params
 
     React.useLayoutEffect(() => {
         navigation.setOptions({title})

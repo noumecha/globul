@@ -1,0 +1,113 @@
+0 verbose cli /usr/bin/node /usr/bin/npm
+1 info using npm@8.15.1
+2 info using node@v16.15.1
+3 timing npm:load:whichnode Completed in 0ms
+4 timing config:load:defaults Completed in 2ms
+5 timing config:load:file:/usr/share/nodejs/npm/npmrc Completed in 8ms
+6 timing config:load:builtin Completed in 8ms
+7 timing config:load:cli Completed in 3ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:file:/home/noumel/Projects/globul/.npmrc Completed in 0ms
+10 timing config:load:project Completed in 7ms
+11 timing config:load:file:/home/noumel/.npmrc Completed in 0ms
+12 timing config:load:user Completed in 0ms
+13 timing config:load:file:/etc/npmrc Completed in 0ms
+14 timing config:load:global Completed in 0ms
+15 timing config:load:validate Completed in 1ms
+16 timing config:load:credentials Completed in 1ms
+17 timing config:load:setEnvs Completed in 1ms
+18 timing config:load Completed in 24ms
+19 timing npm:load:configload Completed in 25ms
+20 timing npm:load:mkdirpcache Completed in 1ms
+21 timing npm:load:mkdirplogs Completed in 0ms
+22 verbose title npm i
+23 verbose argv "i" "--cache" "--legacy-peer-deps"
+24 timing npm:load:setTitle Completed in 2ms
+25 timing config:load:flatten Completed in 4ms
+26 timing npm:load:display Completed in 7ms
+27 verbose logfile logs-max:10 dir:/home/noumel/Projects/globul/--legacy-peer-deps/_logs
+28 verbose logfile /home/noumel/Projects/globul/--legacy-peer-deps/_logs/2022-08-19T05_36_25_285Z-debug-0.log
+29 timing npm:load:logFile Completed in 7ms
+30 timing npm:load:timers Completed in 0ms
+31 timing npm:load:configScope Completed in 0ms
+32 timing npm:load Completed in 43ms
+33 timing arborist:ctor Completed in 1ms
+34 silly logfile done cleaning log files
+35 timing idealTree:init Completed in 911ms
+36 timing idealTree:userRequests Completed in 0ms
+37 silly idealTree buildDeps
+38 timing idealTree:#root Completed in 0ms
+39 silly fetch manifest react-native-reanimated@>= 1.0.0
+40 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+41 http fetch GET 200 https://registry.npmjs.org/react-native-reanimated 2450ms (cache miss)
+42 silly fetch manifest @babel/core@^7.0.0-0
+43 http fetch GET 200 https://registry.npmjs.org/@babel%2fcore 1900ms (cache miss)
+44 silly fetch manifest react@*
+45 http fetch GET 200 https://registry.npmjs.org/react 6706ms (cache miss)
+46 silly fetch manifest react-native@*
+47 http fetch GET 200 https://registry.npmjs.org/react-native 24877ms (cache miss)
+48 silly fetch manifest react@18.0.0
+49 silly placeDep ROOT react-native-reanimated@2.9.1 OK for: @react-navigation/drawer@6.4.3 want: >= 1.0.0
+50 silly fetch manifest @types/invariant@^2.2.35
+51 silly fetch manifest string-hash-64@^1.0.3
+52 http fetch GET 200 https://registry.npmjs.org/@types%2finvariant 441ms (cache miss)
+53 http fetch GET 200 https://registry.npmjs.org/string-hash-64 939ms (cache miss)
+54 timing idealTree:node_modules/@react-navigation/drawer Completed in 36971ms
+55 silly fetch manifest react-native-safe-area-context@^3.1.9
+56 http fetch GET 200 https://registry.npmjs.org/react-native-safe-area-context 2134ms (cache miss)
+57 silly fetch manifest react-native-vector-icons@>7.0.0
+58 http fetch GET 200 https://registry.npmjs.org/react-native-vector-icons 645ms (cache miss)
+59 timing idealTree Completed in 40705ms
+60 timing command:i Completed in 40725ms
+61 verbose stack Error: could not resolve
+61 verbose stack     at PlaceDep.failPeerConflict (/usr/share/nodejs/@npmcli/arborist/lib/place-dep.js:549:25)
+61 verbose stack     at PlaceDep.place (/usr/share/nodejs/@npmcli/arborist/lib/place-dep.js:199:21)
+61 verbose stack     at new PlaceDep (/usr/share/nodejs/@npmcli/arborist/lib/place-dep.js:73:10)
+61 verbose stack     at /usr/share/nodejs/@npmcli/arborist/lib/arborist/build-ideal-tree.js:990:31
+61 verbose stack     at Array.map (<anonymous>)
+61 verbose stack     at Arborist.[buildDepStep] (/usr/share/nodejs/@npmcli/arborist/lib/arborist/build-ideal-tree.js:990:8)
+61 verbose stack     at async Arborist.buildIdealTree (/usr/share/nodejs/@npmcli/arborist/lib/arborist/build-ideal-tree.js:218:7)
+61 verbose stack     at async Promise.all (index 1)
+61 verbose stack     at async Arborist.reify (/usr/share/nodejs/@npmcli/arborist/lib/arborist/reify.js:154:5)
+61 verbose stack     at async Install.exec (/usr/share/nodejs/npm/lib/commands/install.js:145:5)
+62 verbose cwd /home/noumel/Projects/globul
+63 verbose Linux 5.15.0-kali3-amd64
+64 verbose node v16.15.1
+65 verbose npm  v8.15.1
+66 error code ERESOLVE
+67 error ERESOLVE could not resolve
+68 error
+69 error While resolving: [1mreact-native-elements[22m@[1m3.4.2[22m
+69 error Found: [1mreact-native-safe-area-context[22m@[1m4.3.1[22m[2m[22m
+69 error [2mnode_modules/react-native-safe-area-context[22m
+69 error   [1mreact-native-safe-area-context[22m@"[1m^4.2.4[22m" from the root project
+69 error   [35mpeer[39m [1mreact-native-safe-area-context[22m@"[1m>= 3.0.0[22m" from [1m@react-navigation/bottom-tabs[22m@[1m6.3.2[22m[2m[22m
+69 error   [2mnode_modules/@react-navigation/bottom-tabs[22m
+69 error     [1m@react-navigation/bottom-tabs[22m@"[1m^6.3.2[22m" from the root project
+69 error   3 more (@react-navigation/drawer, ...)
+69 error
+69 error Could not resolve dependency:
+69 error [35mpeer[39m [1mreact-native-safe-area-context[22m@"[1m^3.1.9[22m" from [1mreact-native-elements[22m@[1m3.4.2[22m[2m[22m
+69 error [2mnode_modules/react-native-elements[22m
+69 error   [1mreact-native-elements[22m@"[1m^3.4.2[22m" from the root project
+69 error
+69 error Conflicting peer dependency: [1mreact-native-safe-area-context[22m@[1m3.4.1[22m[2m[22m
+69 error [2mnode_modules/react-native-safe-area-context[22m
+69 error   [35mpeer[39m [1mreact-native-safe-area-context[22m@"[1m^3.1.9[22m" from [1mreact-native-elements[22m@[1m3.4.2[22m[2m[22m
+69 error   [2mnode_modules/react-native-elements[22m
+69 error     [1mreact-native-elements[22m@"[1m^3.4.2[22m" from the root project
+69 error
+69 error Fix the upstream dependency conflict, or retry
+69 error this command with --force, or --legacy-peer-deps
+69 error to accept an incorrect (and potentially broken) dependency resolution.
+69 error
+69 error See /home/noumel/Projects/globul/--legacy-peer-deps/eresolve-report.txt for a full report.
+70 verbose exit 1
+71 timing npm Completed in 40870ms
+72 verbose unfinished npm timer reify 1660887385421
+73 verbose unfinished npm timer reify:loadTrees 1660887385435
+74 verbose unfinished npm timer idealTree:buildDeps 1660887386348
+75 verbose unfinished npm timer idealTree:node_modules/react-native-elements 1660887423321
+76 verbose code 1
+77 error A complete log of this run can be found in:
+77 error     /home/noumel/Projects/globul/--legacy-peer-deps/_logs/2022-08-19T05_36_25_285Z-debug-0.log

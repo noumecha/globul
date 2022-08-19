@@ -4,7 +4,7 @@ import { Text, View, Button } from 'react-native'
 import styles from './styles'
 import Box from './Box'
 
-export default function  TestScreen({navigation}) 
+export default function  TestScreen() 
 {
     return (
         <View style={styles.container}>
