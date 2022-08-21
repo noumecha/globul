@@ -4,9 +4,10 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
+    alignSelf: 'stretch',
     alignItems: 'center',
-    backgroundColor: 'ghostwhite',
+    backgroundColor: 'white',
     ...Platform.select({
         ios: { paddingTop: 20 },
         android: { paddingTop: StatusBar.currentHeight },
@@ -47,4 +48,11 @@ export default StyleSheet.create({
     padding: 10,
     borderRadius: 20,
   },
+  item: {
+    margin: 5,
+    padding: 5,
+    color: 'slategrey',
+    backgroundColor: 'ghostwhite',
+    textAlign: 'center',
+  }
 });

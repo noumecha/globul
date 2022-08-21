@@ -1,6 +1,6 @@
 import React from "react"
-import CustButton from '../../../components/CustButton'
-import { Text, View, Button } from 'react-native'
+import CustButton from './CustButton'
+import { Text, View } from 'react-native'
 import styles from './styles'
 import Box from './Box'
 
