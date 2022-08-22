@@ -1,0 +1,15 @@
+import React from 'react'
+import styles from '../../styles'
+import { View , Text } from 'react-native'
+
+export default function MapScreen()
+{
+    return (
+        <View style={styles.container}>
+            <Text>
+                Map Screen
+            </Text>
+        </View>
+        
+    )
+}
