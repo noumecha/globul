@@ -10,7 +10,7 @@ export default StyleSheet.create({
   },
   headerContainer: {
     backgroundColor: '#E42217',
-    width: 400,
+    width: '100%',
     color: '#fff',
     textAlign: 'center',
     fontSize: 22,

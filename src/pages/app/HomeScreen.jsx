@@ -58,3 +58,7 @@ HomeScreen.propTypes = {
     username: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
 }
+HomeScreen.defaultProps = {
+    username: 'noumel',
+    email: 'noumel@gmail.com',
+}
