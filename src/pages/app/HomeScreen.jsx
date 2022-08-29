@@ -43,7 +43,7 @@ export default function HomeScreen()
                 style={styles.txtInput}
             />
             <Text 
-                style={styles.txt}
+                style={styles.txtBtn}
                 onPress={() => {
                     create()
                 }}

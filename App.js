@@ -1,8 +1,7 @@
 // imports for components 
 import 'react-native-gesture-handler'
 //import AppTest from './src/pages/screens/tests/AppTest'
-//import MainStack from "./src/navigation/MainStack";
-import RootNavigation from "./src/navigation/RootNavigation";
+import MainStack from "./src/navigation/MainStack";
 
 // Initialize Firebase
 //const app = initializeApp(firebaseConfig);
@@ -12,8 +11,7 @@ export default function App() {
 
   return (
     //<AppTest/>
-    //<MainStack/>
-    <RootNavigation/>
+    <MainStack/>
   )
 }
 

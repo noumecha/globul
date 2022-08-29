@@ -7,12 +7,17 @@ import WelcomeScreen from '../pages/app/WelcomeScreen';
 import DonateScreen from '../pages/app/DonateScreen';
 import MapScreen from '../pages/app/MapScreen';
 import SettingsScreen from '../pages/app/SettingsScreen';
+import LoginScreen from '../pages/app/LoginScreen';
+// material ui icons 
+//import Icon from 'react-native-ico-material-design';
 
 const Tab = createMaterialBottomTabNavigator()
 
 export default function MainStack()
 {
     return (
+      <LoginScreen/>
+      /*
         <NavigationContainer>
           <Tab.Navigator
             initialRouteName="home"
@@ -71,5 +76,6 @@ export default function MainStack()
             />
           </Tab.Navigator>
         </NavigationContainer>
+      */
     )
 }
