@@ -54,6 +54,24 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
   },
+  // input icon style
+  inputIcon: {
+    padding: 0,
+    marginTop: 10,
+    position: 'absolute',
+    right: 0,
+    //backgroundColor: 'green',
+  },
+  // input text style
+  txtInput: {
+    //padding: 10,
+    //borderRadius: 20,
+    marginTop: 10,
+    width: 250,
+    color: '#E42217',
+    borderBottomWidth: 1,
+    borderColor: '#E42217',
+  },
   // style for the end tex on login screen
   text: {
     //marginTop: 5,
@@ -111,16 +129,6 @@ export default StyleSheet.create({
     marginTop: 20,
     padding: 10,
     borderRadius: 20,
-  },
-  // input text style
-  txtInput: {
-    //padding: 10,
-    //borderRadius: 20,
-    marginTop: 10,
-    width: 250,
-    color: '#E42217',
-    borderBottomWidth: 1,
-    borderColor: '#E42217',
   },
   // big icons style 
   iconBig : {

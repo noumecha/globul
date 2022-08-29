@@ -1,6 +1,7 @@
 import react from 'react'
 import { Text, View, ImageBackground, TextInput, Image } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+//import { ScrollView } from 'react-native-gesture-handler'
 import styles from '../../styles'
 
 const image = require('../../assets/logo2.jpg')
@@ -24,18 +25,11 @@ export default function LoginScreen()
                     style={styles.arc_logo}
                 />
                 <Text style={styles.text}>
-                    la goutte de plus qui sauve
+                    Globul
                 </Text>
             </View>
             {/* bottom container with input and buttons */}
             <View style={styles.containerLogIntput}>
-                <TextInput
-                    label="Email"
-                    //left={}
-                    //style={{ margin: 10 }}
-                    activeUnderlineColor="green" //when this TextInput is active, change its accent color to green
-                    underlineColor="purple" //when inactive, set color to purple
-                />
                 <View style={{ marginTop: 5}}>
                    <TextInput
                         placeholder='email'
@@ -43,7 +37,8 @@ export default function LoginScreen()
                         style={styles.txtInput}
                         //underlineColorAndroid="transparent"
                         keyboardType='email-address'
-                    /> 
+                    />
+                    <MaterialCommunityIcons name="mail" style={styles.inputIcon} color='#E42217' size={26} />
                 </View>
                 <View style={{ marginTop: 5}}>
                     <TextInput
@@ -51,7 +46,8 @@ export default function LoginScreen()
                         placeholderTextColor={'#E42217'}
                         secureTextEntry={true}
                         style={styles.txtInput}
-                    /> 
+                    />
+                    <MaterialCommunityIcons name="form-textbox-password" style={styles.inputIcon} color='#E42217' size={26} />
                 </View>
                 <Text 
                     style={styles.txtBtn}
