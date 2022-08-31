@@ -8,6 +8,7 @@ import DonateScreen from '../pages/app/DonateScreen';
 import MapScreen from '../pages/app/MapScreen';
 import SettingsScreen from '../pages/app/SettingsScreen';
 import LoginScreen from '../pages/app/LoginScreen';
+import RegisterScreen from '../pages/app/RegisterScreen';
 // material ui icons 
 //import Icon from 'react-native-ico-material-design';
 
@@ -16,7 +17,8 @@ const Tab = createMaterialBottomTabNavigator()
 export default function MainStack()
 {
     return (
-      <LoginScreen/>
+      //<LoginScreen/>
+      <RegisterScreen/>
       /*
         <NavigationContainer>
           <Tab.Navigator

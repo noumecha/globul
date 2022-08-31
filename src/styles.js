@@ -8,8 +8,41 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    //backgroundColor: 'green',
+    backgroundColor: 'green',
   },
+  // simple text color: 
+  txtColor: {
+    color: 'white',
+    fontSize: 22,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  /*
+  * this following is for container register screen
+  */
+  registerContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
+    backgroundColor: 'white',
+    zIndex: 1,
+  },
+  reg_logo: {
+    height: '100%',
+    width: '100%',
+    position: 'absolute',
+  },
+  reg_txt: {
+    //marginTop: 20,
+    color: 'white',
+    fontSize: 16,
+  },
+  /*
+  * end styling register screen
+  */
   /*
   * this following is for container login screen
   */
