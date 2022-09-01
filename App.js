@@ -1,6 +1,6 @@
 // imports for components 
 import 'react-native-gesture-handler'
-//import AppTest from './src/pages/screens/tests/AppTest'
+import AppTest from './src/pages/screens/tests/AppTest'
 import MainStack from "./src/navigation/MainStack";
 
 // Initialize Firebase

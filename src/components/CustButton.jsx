@@ -1,24 +1,20 @@
 import React from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheetimport, TouchableOpacity, Text, View } from 'react-native'
+import styles from '../styles'
 
-export default function CustButton({children}){
+export default function CustButton({label, onPress}){
 
     return (
-      <View>
-        <Text style={styles.txt}> {children} </Text>
-        <StatusBar style="auto" />
-      </View>
+      <TouchableOpacity
+        style={styles.txtBtn}
+        onPress={onPress}
+      >
+        <Text 
+          style={styles.reg_txt}
+        >
+          {label} 
+        </Text>
+      </TouchableOpacity>
     )
 }
-
-const styles = StyleSheet.create({
-    txt: {
-      backgroundColor: '#E42217',
-      color: '#fff',
-      fontSize: 16,
-      marginTop: 10,
-      padding: 10,
-      borderRadius: 20,
-    }
-});

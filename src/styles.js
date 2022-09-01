@@ -10,6 +10,10 @@ export default StyleSheet.create({
     width: '100%',
     backgroundColor: 'green',
   },
+  page: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   // simple text color: 
   txtColor: {
     color: 'white',
@@ -29,16 +33,25 @@ export default StyleSheet.create({
     borderBottomRightRadius: 40,
     backgroundColor: 'white',
     zIndex: 1,
+    backgroundColor: 'red',
   },
   reg_logo: {
-    height: '100%',
-    width: '100%',
+    height: 100,
+    width: 100,
     position: 'absolute',
   },
   reg_txt: {
     //marginTop: 20,
     color: 'white',
     fontSize: 16,
+    textAlign: 'center',
+  },
+  regForm : {
+    flex: 2,
+    justifyContent: 'center',
+    width: '100%',
+    alignItems: 'center',
+    //backgroundColor: 'green',
   },
   /*
   * end styling register screen
