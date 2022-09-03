@@ -6,7 +6,7 @@ import styles from '../styles'
 export default function FormInput (props) 
 {
 
-    const { placeholder, iconName, keyboardType } = props
+    const { placeholder, iconName, keyboardType, onPress } = props
 
     return(
         <View style={{ marginTop: 5 }}>
@@ -19,7 +19,13 @@ export default function FormInput (props)
                style={styles.txtInput}
                keyboardType={keyboardType}
            />
-           <MaterialCommunityIcons name={iconName} style={styles.inputIcon} color='#E42217' size={26} />
+           <MaterialCommunityIcons 
+                name={iconName} 
+                style={styles.inputIcon} 
+                color='#E42217' 
+                onPress={onPress} 
+                size={26}
+            />
         </View>
     )
 }

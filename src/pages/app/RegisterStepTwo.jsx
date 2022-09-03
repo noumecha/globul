@@ -4,6 +4,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import styles from '../../styles';
 import CustButton from '../../components/CustButton';
 import SelectList from 'react-native-dropdown-select-list'
+import FormInput from '../../components/FormInput'
 
 
 export default function RegisterStepTwo() 
@@ -32,15 +33,11 @@ export default function RegisterStepTwo()
                     style={styles.arc_logo}
                 />
             </View>
-            <View style={{ marginTop: 5}}>
-                <TextInput
-                    placeholder='Contact'
-                    placeholderTextColor={'#E42217'}
-                    keyboardType='number-pad'
-                    style={styles.txtInput}
-                />
-                <MaterialCommunityIcons name="phone-hangup" style={styles.inputIcon} color='#E42217' size={26} />
-            </View>
+            <FormInput
+                placeholder='Contact'
+                iconName='phone-hangup'
+                keyboardType='number-pad'
+            />
             <View style={{ marginTop: 5}}>
                 <SelectList
                     //onSelect={() => alert(selected)}
@@ -70,47 +67,23 @@ export default function RegisterStepTwo()
                     }} //override default styles
                 />
             </View>
-            <View style={{ marginTop: 5}}>
-                <TextInput
-                    placeholder='Ville'
-                    placeholderTextColor={'#E42217'}
-                    keyboardType='default'
-                    style={styles.txtInput}
-                />
-                <MaterialCommunityIcons name="map-marker" style={styles.inputIcon} color='#E42217' size={26} />
-            </View>
-            <View style={{ marginTop: 5}}>
-                <TextInput
-                    placeholder='Mot de passe'
-                    placeholderTextColor={'#E42217'}
-                    secureTextEntry={passwordVisible}
-                    //keyboardType='visible-password'
-                    style={styles.txtInput}
-                />
-                <MaterialCommunityIcons 
-                    //name="eye-off" 
-                    style={styles.inputIcon} 
-                    color='#E42217' 
-                    size={26} 
-                    name={passwordVisible ? "eye-off" : "eye"} 
-                    onPress={() => setPasswordVisible(!passwordVisible)}
-                />
-            </View>
-            <View style={{ marginTop: 5}}>
-                <TextInput
-                    placeholder='Confirmer le mot de passe'
-                    placeholderTextColor={'#E42217'}
-                    secureTextEntry={passwordVisibleConfirm}
-                    style={styles.txtInput}
-                />
-                <MaterialCommunityIcons 
-                    style={styles.inputIcon} 
-                    color='#E42217' 
-                    size={26} 
-                    name={passwordVisibleConfirm ? "eye-off" : "eye"} 
-                    onPress={() => setPasswordVisibleConfirm(!passwordVisibleConfirm)}
-                />
-            </View>
+            <FormInput
+                placeholder='Ville'
+                iconName='map-marker'
+                keyboardType='text'
+            />
+            <FormInput
+                placeholder='Mot de passe'
+                secureTextEntry={passwordVisible}
+                iconName={passwordVisible ? "eye-off" : "eye"}
+                onPress={() => setPasswordVisible(!passwordVisible)}
+            />
+            <FormInput
+                placeholder='Confirmer le mot de passse'
+                secureTextEntry={passwordVisibleConfirm}
+                iconName={passwordVisibleConfirm ? "eye-off" : "eye"}
+                onPress={() => setPasswordVisibleConfirm(!passwordVisibleConfirm)}
+            />
             <CustButton
                 style={styles.txtBtn}
                 label="creer"
