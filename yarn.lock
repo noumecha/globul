@@ -6438,10 +6438,20 @@
     "jscodeshift" "^0.13.1"
     "nullthrows" "^1.1.1"
 
+"react-native-dropdown-select-list@^1.0.19":
+  "integrity" "sha512-5lxfDpQFphOuxmzoPNNgFhxv/++JAj2bJiBq3B+4gsJub3pUUy4qJAGneWLRS4u6AmDOp6WPf5+edYmG+ZM1ZA=="
+  "resolved" "https://registry.npmjs.org/react-native-dropdown-select-list/-/react-native-dropdown-select-list-1.0.19.tgz"
+  "version" "1.0.19"
+
 "react-native-fontawesome@^7.0.0":
   "integrity" "sha512-UBZXyTLO8rK2NMf7Eomzb70b6cpL5JlBI4xwJGnRroRofrIXUxPelmm0Ojs6OcMs4ucAyPidCOxbJDJlmb2vdA=="
   "resolved" "https://registry.npmjs.org/react-native-fontawesome/-/react-native-fontawesome-7.0.0.tgz"
   "version" "7.0.0"
+
+"react-native-form-component@^2.4.0":
+  "integrity" "sha512-/FRaj0h2rIYMLvhtAfnunSF6JuC7W7jrA4riZp8IRkXLCvi1z5wBAV4C0eKZ9RoLeZzgDiM89swEb8O5yRjuPQ=="
+  "resolved" "https://registry.npmjs.org/react-native-form-component/-/react-native-form-component-2.4.0.tgz"
+  "version" "2.4.0"
 
 "react-native-gesture-handler@>= 1.0.0", "react-native-gesture-handler@~2.2.1":
   "integrity" "sha512-P4kAPbSY8VFAjvFNzfePgFsbZEldfEnEfNqOJw6MlpcdXrPGwRbvMqWMVkA9lifdKTZ3XifvAgJ8+R+uEZN0zA=="
