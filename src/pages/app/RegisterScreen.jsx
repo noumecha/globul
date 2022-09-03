@@ -31,7 +31,7 @@ export default function RegisterScreen()
                             },
                             headerTintColor: 'white',
                             headerTitleAlign: 'center',
-                            title: 'inscription étape 1/2',
+                            title: 'Inscription : Etape 1/2',
                         }}
                         name='Etape 1/2'
                         component={RegisterStepOne}
@@ -44,7 +44,7 @@ export default function RegisterScreen()
                                 color: 'white',
                             },
                             headerTintColor: 'white',
-                            title: 'inscription étape 2/2',
+                            title: 'Inscription Etape : 2/2',
                             headerTitleAlign: 'center',
                         }}
                         name='Etape 2/2'
