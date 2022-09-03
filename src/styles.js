@@ -8,11 +8,14 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    backgroundColor: 'green',
+    backgroundColor: '#E42217',
   },
   page: {
     justifyContent: 'center',
     alignItems: 'center',
+    borderBottomRightRadius: 70,
+    borderTopLeftRadius: 70,
+    backgroundColor: 'red',
   },
   // simple text color: 
   txtColor: {
@@ -25,7 +28,7 @@ export default StyleSheet.create({
   * this following is for container register screen
   */
   registerContainer: {
-    flex: 1,
+    flex: 0.4,
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
@@ -49,9 +52,16 @@ export default StyleSheet.create({
   regForm : {
     flex: 2,
     justifyContent: 'center',
-    width: '100%',
+    //width: '100%',
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 20,
+    marginRight: 20,
+    borderBottomRightRadius: 40,
+    borderTopLeftRadius: 40,
+    backgroundColor: 'white',
+    width: '90%',
     alignItems: 'center',
-    //backgroundColor: 'green',
   },
   /*
   * end styling register screen
@@ -117,6 +127,15 @@ export default StyleSheet.create({
     color: '#E42217',
     borderBottomWidth: 1,
     borderColor: '#E42217',
+  },
+  txtInputWhite: {
+    //padding: 10,
+    //borderRadius: 20,
+    marginTop: 10,
+    width: 250,
+    color: '#fff',
+    borderBottomWidth: 1,
+    borderColor: '#fff',
   },
   // style for the end tex on login screen
   text: {

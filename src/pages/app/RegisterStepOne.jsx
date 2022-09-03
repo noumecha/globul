@@ -1,57 +1,66 @@
 
 import react from 'react'
-import { Text, View, ImageBackground, TextInput, Image } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native';
+import { View, TextInput, Image } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import styles from '../../styles';
+import CustButton from '../../components/CustButton'
 
-export default function RegisterStepOne () {
+export default function RegisterStepOne ({navigation}) {
     return (
         <View style={styles.regForm}>
+            <View style={styles.arc}>
+                <Image
+                    source={require('../../assets/donor.png')}
+                    style={styles.arc_logo}
+                />
+            </View>
             <View style={{ marginTop: 5}}>
                 <TextInput
-                    placeholder='nom'
+                    placeholder='Nom'
                     placeholderTextColor={'#E42217'} 
                     style={styles.txtInput}
                     keyboardType="text"
                 />
-                <MaterialCommunityIcons name="verified-user" style={styles.inputIcon} color='#E42217' size={26} />
+                <MaterialCommunityIcons name="account" style={styles.inputIcon} color='#E42217' size={26} />
             </View>
             <View style={{ marginTop: 5}}>
                 <TextInput
-                    placeholder='prenom'
+                    placeholder='Prenom'
                     placeholderTextColor={'#E42217'}
                     style={styles.txtInput}
                 />
-                <MaterialCommunityIcons name="form-textbox-password" style={styles.inputIcon} color='#E42217' size={26} />
+                <MaterialCommunityIcons name="account" style={styles.inputIcon} color='#E42217' size={26} />
             </View>
             <View style={{ marginTop: 5}}>
                 <TextInput
-                    placeholder='email'
+                    placeholder='Email'
                     placeholderTextColor={'#E42217'}
                     keyboardType='email-address'
                     style={styles.txtInput}
                 />
-                <MaterialCommunityIcons name="form-textbox-password" style={styles.inputIcon} color='#E42217' size={26} />
+                <MaterialCommunityIcons name="at" style={styles.inputIcon} color='#E42217' size={26} />
             </View>
             <View style={{ marginTop: 5}}>
                 <TextInput
-                    placeholder='age'
+                    placeholder='Age'
                     placeholderTextColor={'#E42217'}
                     keyboardType='numeric'
                     style={styles.txtInput}
                 />
-                <MaterialCommunityIcons name="form-textbox-password" style={styles.inputIcon} color='#E42217' size={26} />
+                <MaterialCommunityIcons name="language-lua" style={styles.inputIcon} color='#E42217' size={26} />
             </View>
             <View style={{ marginTop: 5}}>
                 <TextInput
-                    placeholder='sexe (M ou F)'
+                    placeholder='Sexe (M ou F)'
                     placeholderTextColor={'#E42217'}
                     style={styles.txtInput}
                 />
-                <MaterialCommunityIcons name="form-textbox-password" style={styles.inputIcon} color='#E42217' size={26} />
+                <MaterialCommunityIcons name="human-non-binary" style={styles.inputIcon} color='#E42217' size={26} />
             </View>
+            <CustButton 
+                label="suivant" 
+                onPress={() => navigation.navigate('Etape 2/2')}
+            />
         </View>
     )
 }

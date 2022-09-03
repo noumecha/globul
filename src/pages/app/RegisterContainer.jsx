@@ -17,11 +17,6 @@ export default function RegisterContainer()
     return (
 
         <>
-            <View style={styles.registerContainer}>
-                <Text style={styles.reg_txt}>
-                    Register page
-                </Text>
-            </View>
             <PagerView 
                 style={styles.regForm} 
                 initialPage={0}
@@ -31,21 +26,11 @@ export default function RegisterContainer()
                     <RegisterStepOne
 
                     />
-                    <FooterComp
-                        backgroundColor="#E42217"
-                        rightButtonLabel="Next"
-                        rightButtonPress={() => true}
-                    />
                 </View>
 
                 <View style={styles.page} key="3">
                     <RegisterStepTwo
 
-                    />
-                    <FooterComp
-                        backgroundColor="#E42217"
-                        rightButtonLabel="Previous"
-                        rightButtonPress={() => true}
                     />
                 </View>
             </PagerView>
