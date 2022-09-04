@@ -1,5 +1,5 @@
 import react, { useState } from 'react'
-import { View, TextInput, Image } from 'react-native'
+import { View, TextInput, Image, Text } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from '../../styles';
 import CustButton from '../../components/CustButton';
@@ -10,7 +10,27 @@ import FormInput from '../../components/FormInput'
 export default function RegisterStepTwo() 
 {
 
+    const isValidObjField = (obj) => {
+        return Object.values(obj).every(value => value.trim()) 
+    }
+
+    const updateError = (error, stateUpdater) => {
+        stateUpdater(error)
+        setTimeout(() => {
+            stateUpdater('')
+        }, 3000)
+    }
+
     const [selected, setSelected] = useState("");
+    const [userInfo, setUserInfo] = useState({
+        contact: '',
+        ville: '',
+        password: '',
+        passwordConfirm:'',
+    })
+
+    const [error, setError] = useState('')    
+
     const [passwordVisible, setPasswordVisible] = useState(true);
     const [passwordVisibleConfirm, setPasswordVisibleConfirm] = useState(true);
 
@@ -25,6 +45,34 @@ export default function RegisterStepTwo()
         { key: '8', value: 'AB+' },
     ];
 
+    const { contact, ville, password, passwordConfirm} = userInfo
+
+    const handleOnChangeText = (value, fieldName) => {
+        setUserInfo({...userInfo, [fieldName]: value })
+    }
+
+    const isValidForm = () => {
+        // all field have value
+        if(!isValidObjField(userInfo)) return updateError('tout les champs sont requis', setError)
+        // if contact is not valid
+        if(!contact.trim() || contact.length < 9 ) return updateError('numero de telephne invalid', setError)
+        // if email is not valid 
+        if(!ville.trim()) return updateError('Le champ ville est vide ', setError)
+        // password validation 
+        if(!password.trim() || password.length < 8) return updateError('le mot de passe doit avoir au moins 8 caractères', setError)
+        // password confirm 
+        if(password !== passwordConfirm) return updateError('les mots de passe ne sont pas identiques', setError)
+    } 
+
+    const submitForm = () => {
+        if(isValidForm()){
+            // submit form 
+            console.log(userInfo)
+        }
+    }
+
+    console.log(userInfo)
+
     return (
         <View style={styles.regForm}>
             <View style={styles.arc}>
@@ -33,8 +81,11 @@ export default function RegisterStepTwo()
                     style={styles.arc_logo}
                 />
             </View>
+            { error ? <Text style={{ textAlign: 'center', color: '#000' }}> {error} </Text> : null }
             <FormInput
                 placeholder='Contact'
+                value={contact}
+                onChangeText={value => handleOnChangeText(value, 'contact')}
                 iconName='phone-hangup'
                 keyboardType='number-pad'
             />
@@ -69,23 +120,30 @@ export default function RegisterStepTwo()
             </View>
             <FormInput
                 placeholder='Ville'
+                value={ville}
+                onChangeText={value => handleOnChangeText(value, 'ville')}
                 iconName='map-marker'
                 keyboardType='text'
             />
             <FormInput
                 placeholder='Mot de passe'
+                value={password}
+                onChangeText={value => handleOnChangeText(value, 'password')}
                 secureTextEntry={passwordVisible}
                 iconName={passwordVisible ? "eye-off" : "eye"}
                 onPress={() => setPasswordVisible(!passwordVisible)}
             />
             <FormInput
                 placeholder='Confirmer le mot de passse'
+                onChangeText={value => handleOnChangeText(value, 'passwordConfirm')}
+                value={passwordConfirm}
                 secureTextEntry={passwordVisibleConfirm}
                 iconName={passwordVisibleConfirm ? "eye-off" : "eye"}
                 onPress={() => setPasswordVisibleConfirm(!passwordVisibleConfirm)}
             />
             <CustButton
                 style={styles.txtBtn}
+                onPress={submitForm}
                 label="creer"
             />
         </View>
