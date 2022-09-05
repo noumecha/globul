@@ -92,7 +92,7 @@ export default function RegisterStepOne({ navigation }) {
                 placeholder='Email'
                 value={email}
                 onChangeText={value => handleOnChangeText(value, 'email')}
-                iconName='at'
+                iconName='mail'
                 keyboardType='email-address'
             />
             <FormInput
