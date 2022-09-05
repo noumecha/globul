@@ -5,7 +5,7 @@ import styles from '../../styles';
 import CustButton from '../../components/CustButton';
 import SelectList from 'react-native-dropdown-select-list'
 import FormInput from '../../components/FormInput'
-
+import ErrorMessage from '../../components/ErrorMessage';
 
 export default function RegisterStepTwo() 
 {
@@ -81,7 +81,7 @@ export default function RegisterStepTwo()
                     style={styles.arc_logo}
                 />
             </View>
-            { error ? <Text style={{ textAlign: 'center', color: '#000' }}> {error} </Text> : null }
+            { error ? <ErrorMessage error={error} visible={true}/> : null }
             <FormInput
                 placeholder='Contact'
                 value={contact}
@@ -123,7 +123,7 @@ export default function RegisterStepTwo()
                 value={ville}
                 onChangeText={value => handleOnChangeText(value, 'ville')}
                 iconName='map-marker'
-                keyboardType='text'
+                keyboardType='default'
             />
             <FormInput
                 placeholder='Mot de passe'

@@ -1,6 +1,17 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  // errror message : 
+  errorText: {
+    color: 'white',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    fontSize: 16,
+    padding: 10,
+    fontWeight: '600',
+    borderRadius: 7,
+    backgroundColor: 'black',
+  },
   // loader conatiner 
   loadContainer: {
     flex: 1,
@@ -123,6 +134,11 @@ export default StyleSheet.create({
     position: 'absolute',
     right: 0,
     //backgroundColor: 'green',
+  },
+  // error icon style 
+  errorIcon: {
+    padding: 0,
+    margin: 0
   },
   // input text style
   txtInput: {

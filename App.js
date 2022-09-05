@@ -18,7 +18,7 @@ export default function App() {
   //const [userToken, setUserToken] = useState(false)
 
   const initialLoginState = {
-    isLoading: false,
+    isLoading: true,
     userToken: null,
     userName: null,
   }
@@ -64,7 +64,7 @@ export default function App() {
       //setUserToken('nmlivan')
       //setIsLoading(false)
       let userToken
-      userEmail = null
+      userToken = null
       if ( userEmail === "noumel" && userPassword === "noumel" ) {
         userToken = "nmlivan"
         console.log(userEmail + userPassword)
@@ -77,8 +77,8 @@ export default function App() {
       dispatch({ type: 'LOGOUT' })
     },
     signUp: () => {
-      setUserToken('nmlivan')
-      setIsLoading(false)
+      //setUserToken('nmlivan')
+      //setIsLoading(false)
     },
   }), [])
 
