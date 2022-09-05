@@ -1,10 +1,11 @@
-import react, { useState } from 'react'
+import react, { useState, useContext } from 'react'
 import { Text, View, ImageBackground, TextInput, Image } from 'react-native'
 //import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 //import { ScrollView } from 'react-native-gesture-handler'
 import FormInput from '../../components/FormInput'
 import CustButton from '../../components/CustButton';
 import styles from '../../styles'
+import { AuthContext } from '../../components/context';
 
 const image = require('../../assets/logo2.jpg')
 
@@ -17,6 +18,8 @@ export default function LoginScreen({ navigation })
         email: '',
         password: '',
     })
+
+    const { signIn } = useContext(AuthContext)
 
     const { email, password } = userInfo
 
@@ -63,14 +66,15 @@ export default function LoginScreen({ navigation })
                 />
                 <CustButton 
                     label='Connexion'
+                    onPress={() => {signIn()}}
                 />
                 <View>
                     <Text style={styles.text}>
                         Pas de Compte ? 
                         <CustButton 
                             onPress={() => navigation.navigate(
-                                'RegisterScreen'//, 
-                                //{ screen: 'RegisterStepOne' }
+                                'register', 
+                                { screen: 'RegisterStepOne' }
                             )}
                             label="Creer le"
                         />

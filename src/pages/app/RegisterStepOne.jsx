@@ -113,9 +113,9 @@ export default function RegisterStepOne({ navigation }) {
                 label="suivant"
                 //onPress={() => navigation.navigate('Etape 2/2')}
                 onPress={() => { //validate()
-                    testFormOne()
+                    //testFormOne()
                     //else {alert("noumel")}
-                    /*if (isValidForm()) { navigation.navigate('Etape 2/2') /*}*/
+                    /*if (isValidForm()) {*/ navigation.navigate('Etape 2/2') /*}*/
                 }}
             />
         </View>

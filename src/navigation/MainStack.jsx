@@ -19,66 +19,64 @@ export default function MainStack()
     return (
       //<LoginScreen/>
       //<RegisterScreen/>
-      <MapScreen/>
-      /*
-        <NavigationContainer>
-          <Tab.Navigator
-            initialRouteName="home"
-            activeColor="white"
-            barStyle={{ backgroundColor: '#E42217' }}
-          >
-            <Tab.Screen
-              name="Home"
-              component={HomeScreen}
-              options={{
-                tabBarLabel: 'Home',
-                tabBarIcon: ({ color }) => (
-                  <MaterialCommunityIcons name="home" color={color} size={26} />
-                ),
-              }}
-            />
-            <Tab.Screen
-              name="Welcome"
-              component={WelcomeScreen}
-              options={{
-                tabBarLabel: 'Donations',
-                tabBarIcon: ({ color }) => (
-                  <MaterialCommunityIcons name="bell" color={color} size={26} />
-                ),
-              }}
-            />
-            <Tab.Screen
-              name="Donate"
-              component={DonateScreen}
-              options={{
-                tabBarLabel: 'new donate',
-                tabBarIcon: ({ color }) => (
-                  <MaterialCommunityIcons name="plus-circle" color={color} size={26} />
-                ),
-              }}
-            />
-            <Tab.Screen
-              name="Map"
-              component={MapScreen}
-              options={{
-                tabBarLabel: 'Mapping',
-                tabBarIcon: ({ color }) => (
-                  <MaterialCommunityIcons name="map" color={color} size={26} />
-                ),
-              }}
-            />
-            <Tab.Screen
-              name="Settings"
-              component={SettingsScreen}
-              options={{
-                tabBarLabel: 'Profile',
-                tabBarIcon: ({ color }) => (
-                  <MaterialCommunityIcons name="account" color={color} size={26} />
-                ),
-              }}
-            />
-          </Tab.Navigator>
-        </NavigationContainer>
-      */
+      //<MapScreen/>
+      <NavigationContainer>
+        <Tab.Navigator
+          initialRouteName="home"
+          activeColor="white"
+          barStyle={{ backgroundColor: '#E42217' }}
+        >
+          <Tab.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{
+              tabBarLabel: 'Home',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="home" color={color} size={26} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Welcome"
+            component={WelcomeScreen}
+            options={{
+              tabBarLabel: 'Donations',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="bell" color={color} size={26} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Donate"
+            component={DonateScreen}
+            options={{
+              tabBarLabel: 'new donate',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="plus-circle" color={color} size={26} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Map"
+            component={MapScreen}
+            options={{
+              tabBarLabel: 'Mapping',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="map" color={color} size={26} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Settings"
+            component={SettingsScreen}
+            options={{
+              tabBarLabel: 'Profile',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="account" color={color} size={26} />
+              ),
+            }}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
     )
 }
