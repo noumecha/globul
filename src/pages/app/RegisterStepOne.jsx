@@ -79,14 +79,14 @@ export default function RegisterStepOne({ navigation }) {
                 value={nom}
                 onChangeText={value => handleOnChangeText(value, 'nom')}
                 iconName='account-circle'
-                keyboardType='text'
+                keyboardType='default'
             />
             <FormInput
                 placeholder='Prenom'
                 value={prenom}
                 onChangeText={value => handleOnChangeText(value, 'prenom')}
                 iconName='account'
-                keyboardType='text'
+                keyboardType='default'
             />
             <FormInput
                 placeholder='Email'

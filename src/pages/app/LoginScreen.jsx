@@ -14,17 +14,21 @@ export default function LoginScreen({ navigation })
 
     const [passwordVisible, setPasswordVisible] = useState(true);
 
-    const [userInfo, setUserInfo] = useState({
-        email: '',
-        password: '',
+    const [userInfoCon, setUserInfoCon] = useState({
+        email: 'noumel',
+        password: 'noumel',
     })
 
     const { signIn } = useContext(AuthContext)
 
-    const { email, password } = userInfo
+    const { email, password } = userInfoCon
 
     const handleOnChangeText = (value, fieldName) => {
-        setUserInfo({...userInfo, [fieldName]: value })
+        setUserInfoCon({...userInfoCon, [fieldName]: value })
+    }
+
+    const loginHandle = (email, password) => {
+        signIn(email, password)
     }
 
     return(
@@ -66,7 +70,9 @@ export default function LoginScreen({ navigation })
                 />
                 <CustButton 
                     label='Connexion'
-                    onPress={() => {signIn()}}
+                    onPress={() => {
+                        loginHandle(userInfoCon.email, userInfoCon.password)
+                    }}
                 />
                 <View>
                     <Text style={styles.text}>
