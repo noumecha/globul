@@ -1,6 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  // loader conatiner 
+  loadContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   // default container
   container: {
     flex: 1,
@@ -8,7 +14,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    backgroundColor: '#E42217',
+    backgroundColor: 'white',
   },
   page: {
     justifyContent: 'center',

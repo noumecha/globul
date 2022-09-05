@@ -1,13 +1,15 @@
 import react from 'react'
 import { Text, View, ImageBackground, TextInput, Image } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import CustButton from '../../components/CustButton'
 //import { ScrollView } from 'react-native-gesture-handler'
 import styles from '../../styles'
 
 const image = require('../../assets/logo2.jpg')
 
-export default function LoginScreen() 
+export default function LoginScreen({ navigation }) 
 {
+
     return(
         <View
             style={styles.container}
@@ -56,7 +58,14 @@ export default function LoginScreen()
                 </Text>
                 <View>
                     <Text style={styles.text}>
-                        Pas de Compte ? <Text style={styles.textLink}>Creer le!</Text>
+                        Pas de Compte ? 
+                        <CustButton 
+                            onPress={() => navigation.navigate(
+                                'RegisterScreen'//, 
+                                //{ screen: 'RegisterStepOne' }
+                            )}
+                            label="Creer le"
+                        />
                     </Text>
                 </View>
             </View>

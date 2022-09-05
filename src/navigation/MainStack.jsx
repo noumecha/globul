@@ -18,7 +18,8 @@ export default function MainStack()
 {
     return (
       //<LoginScreen/>
-      <RegisterScreen/>
+      //<RegisterScreen/>
+      <MapScreen/>
       /*
         <NavigationContainer>
           <Tab.Navigator
