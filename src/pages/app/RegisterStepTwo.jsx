@@ -13,7 +13,7 @@ import { doc, setDoc, addDoc, collection } from 'firebase/firestore'
 import { db } from '../../../config'
 import { PropTypes } from 'prop-types'
 
-export default function RegisterStepTwo({route}) 
+export default function RegisterStepTwo({route, navigation}) 
 {
 
     // validating the form input values
@@ -97,6 +97,7 @@ export default function RegisterStepTwo({route})
         }).then(() => {
             // data save successfully
             console.log('data submitted successfully')
+            navigation.navigate('Connexion')
         }).catch((error) => {
             console.log(error)
         })
