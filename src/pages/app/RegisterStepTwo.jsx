@@ -1,7 +1,7 @@
 // import react.
 import react, { useState } from 'react'
 // imports for components
-import { View, Image, Text } from 'react-native'
+import { View, Image } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from '../../styles';
 import CustButton from '../../components/CustButton';
@@ -9,7 +9,7 @@ import SelectList from 'react-native-dropdown-select-list'
 import FormInput from '../../components/FormInput'
 import ErrorMessage from '../../components/ErrorMessage';
 // for handling : 
-import { doc, setDoc, addDoc, collection } from 'firebase/firestore'
+import { addDoc, collection } from 'firebase/firestore'
 import { db } from '../../../config'
 import { PropTypes } from 'prop-types'
 
@@ -84,7 +84,39 @@ export default function RegisterStepTwo({route, navigation})
             'sexe : ' + route.params.donorSexe + 
             'ville : ' + userInfo.ville 
         )*/
-        addDoc(collection(db, 'donor'), {
+        db
+            .auth()
+            .createUserWithEmailAndPassword(route.params.donorEmail, userInfo.password)
+            .then((response) => {
+                const uid = response.user.uid
+                const data = {
+                    id: uid,
+                    age : Number(route.params.donorAge),
+                    contact : Number(userInfo.contact),
+                    email : route.params.donorEmail,
+                    groupe_sanguin : bloodGroup,
+                    nom : route.params.donorName,
+                    //password : userInfo.password,
+                    prenom : route.params.donorSurname,
+                    sexe : route.params.donorSexe,
+                    ville : userInfo.ville,
+                }
+                const usersRef = firebase.firestore().collection('users')
+                usersRef
+                    .doc(uid)
+                    .set(data)
+                    .then(() => {
+                        console.log('data store sucessfully')
+                        navigation.navigate('Connextion', {user : data})
+                    })
+                    .catch((error) => {
+                        console.log('error with datas: ' + error)
+                    })
+            })
+            .catch((error) => {
+                alert('error firebase: ' + error)
+            })
+        /*addDoc(collection(db, 'donor'), {
             age : Number(route.params.donorAge),
             contact : Number(userInfo.contact),
             email : route.params.donorEmail,
@@ -100,7 +132,7 @@ export default function RegisterStepTwo({route, navigation})
             navigation.navigate('Connexion')
         }).catch((error) => {
             console.log(error)
-        })
+        })*/
     }
 
     const isValidForm = () => {

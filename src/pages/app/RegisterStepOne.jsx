@@ -139,9 +139,9 @@ export default function RegisterStepOne({ navigation }) {
 }
 
 RegisterStepOne.propTypes = {
-    nom : PropTypes.string.isRequired,
-    prenom : PropTypes.string.isRequired,
-    email : PropTypes.string.isRequired,
-    age: PropTypes.number.isRequired,
-    sexe: PropTypes.string.isRequired,
+    nom : PropTypes.string,
+    prenom : PropTypes.string,
+    email : PropTypes.string,
+    age: PropTypes.number,
+    sexe: PropTypes.string,
 }

@@ -6,11 +6,8 @@ import AuthStack from "./src/navigation/AuthStack";
 import { AuthContext } from "./src/components/context"
 import React, { useState, useEffect, useMemo, useReducer } from 'react'
 import { View, ActivityIndicator } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import styles from './src/styles';
-
-// Initialize Firebase
-//const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
 
 export default function App() {
 
@@ -60,20 +57,30 @@ export default function App() {
   )
 
   const authContext = useMemo(() => ({
-    signIn: (userEmail, userPassword) => {
+    signIn: async(userEmail, userPassword) => {
       //setUserToken('nmlivan')
       //setIsLoading(false)
       let userToken
       userToken = null
       if ( userEmail === "noumel" && userPassword === "noumel" ) {
-        userToken = "nmlivan"
+        try {
+          userToken = "nmlivan"
+          await AsyncStorage.setItem('userToken', userToken)
+        } catch (e) {
+          console.log(e)
+        }
         console.log(userEmail + userPassword)
       }
       dispatch({ type: 'LOGIN', id: userEmail, token: userToken })
     },
-    signOut: () => {
+    signOut: async() => {
       //setUserToken(null)
       //setIsLoading(false)
+      try {
+        await AsyncStorage.removeItem('userToken')
+      } catch (e) {
+        console.log(e)
+      }
       dispatch({ type: 'LOGOUT' })
     },
     signUp: () => {
@@ -83,9 +90,16 @@ export default function App() {
   }), [])
 
   useEffect(() => {
-    setTimeout(() => {
+    setTimeout(async() => {
       //setIsLoading(false)
-      dispatch({ type: 'RETRIEVE_TOKEN', token: 'nmlspaker' })
+      let userToken
+      userToken = null
+      try {
+        userToken = await AsyncStorage.getItem('userToken')
+      } catch (e) {
+        console.log(e)
+      }
+      dispatch({ type: 'RETRIEVE_TOKEN', token: userToken })
     }, 3000)
   }, [])
 
