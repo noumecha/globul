@@ -37,6 +37,7 @@ export default StyleSheet.create({
   // simple text color: 
   txtColor: {
     color: 'white',
+    //backgroundColor: 'black',
     fontSize: 22,
     fontWeight: 'bold',
     textAlign: 'center',

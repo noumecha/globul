@@ -1,7 +1,10 @@
 
 import react, { useState } from 'react'
-import { View, TextInput, Text, Image, Picker } from 'react-native'
+import { View, Text, Image, Picker } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { doc, setDoc, addDoc, collection } from 'firebase/firestore'
+import { db } from '../../../config'
+import { PropTypes } from 'prop-types'
 import styles from '../../styles';
 //import { Form, FormItem, Picker,  } from 'react-native-form-component'
 import CustButton from '../../components/CustButton'
@@ -39,6 +42,19 @@ export default function RegisterStepOne({ navigation }) {
 
     const handleOnChangeText = (value, fieldName) => {
         setUserInfo({...userInfo, [fieldName]: value })
+    }
+
+    function create () {
+        console.log(userInfo)
+        /*addDoc(collection(db, 'users'), {
+            userInfo : toString(username),
+            email: toString(email)
+        }).then(() => {
+            // data save successfully
+            console.log('data submitted successfully')
+        }).catch((error) => {
+            console.log(error)
+        })*/
     }
 
     const isValidForm = () => {
@@ -115,9 +131,20 @@ export default function RegisterStepOne({ navigation }) {
                 onPress={() => { //validate()
                     //testFormOne()
                     //else {alert("noumel")}
-                    /*if (isValidForm()) {*/ navigation.navigate('Etape 2/2') /*}*/
+                    /*if (isValidForm()) {*/ navigation.navigate('Etape 2/2', {
+                        donor: userInfo.nom,
+                    }) /*}*/
+                    //create()
                 }}
             />
         </View>
     )
+}
+
+RegisterStepOne.propTypes = {
+    nom : PropTypes.string.isRequired,
+    prenom : PropTypes.string.isRequired,
+    email : PropTypes.string.isRequired,
+    age: PropTypes.number.isRequired,
+    sexe: PropTypes.string.isRequired,
 }

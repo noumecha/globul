@@ -7,7 +7,7 @@ import SelectList from 'react-native-dropdown-select-list'
 import FormInput from '../../components/FormInput'
 import ErrorMessage from '../../components/ErrorMessage';
 
-export default function RegisterStepTwo() 
+export default function RegisterStepTwo({route}) 
 {
 
     const isValidObjField = (obj) => {
@@ -81,6 +81,11 @@ export default function RegisterStepTwo()
                     style={styles.arc_logo}
                 />
             </View>
+            <Text
+                style={styles.txtBtn}
+            >
+                {route.params.donor}
+            </Text>
             { error ? <ErrorMessage error={error} visible={true}/> : null }
             <FormInput
                 placeholder='Contact'
