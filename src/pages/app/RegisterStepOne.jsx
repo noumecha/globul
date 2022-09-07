@@ -1,22 +1,22 @@
 
 import react, { useState } from 'react'
-import { View, Text, Image, Picker } from 'react-native'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { View, Image } from 'react-native'
+import ErrorMessage from '../../components/ErrorMessage'
 import { doc, setDoc, addDoc, collection } from 'firebase/firestore'
 import { db } from '../../../config'
 import { PropTypes } from 'prop-types'
 import styles from '../../styles';
-//import { Form, FormItem, Picker,  } from 'react-native-form-component'
 import CustButton from '../../components/CustButton'
 import FormInput from '../../components/FormInput'
 
 
 export default function RegisterStepOne({ navigation }) {
-
+    // for catching errors in inputForm Component
     const isValidObjField = (obj) => {
         return Object.values(obj).every(value => value.trim()) 
     }
 
+    // for updateError and show the error
     const updateError = (errorOne, stateUpdater) => {
         stateUpdater(errorOne)
         setTimeout(() => {
@@ -24,10 +24,13 @@ export default function RegisterStepOne({ navigation }) {
         }, 3000)
     }
 
+    // for validating the email address
     const isValidEmail = (value) => {
         const regx = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
         return regx.test(value)
     }
+
+    // state for the user info
     const [userInfo, setUserInfo] = useState({
         nom: '',
         prenom: '',
@@ -36,14 +39,18 @@ export default function RegisterStepOne({ navigation }) {
         sexe: '',
     })
 
+    // state for the error to show
     const [errorOne, setErrorOne] = useState('')
     
+    // the userInfo keys 
     const { nom, prenom, email, age, sexe} = userInfo
 
+    // for handling inputForm values
     const handleOnChangeText = (value, fieldName) => {
         setUserInfo({...userInfo, [fieldName]: value })
     }
 
+    // for create new object in the db
     function create () {
         console.log(userInfo)
         /*addDoc(collection(db, 'users'), {
@@ -57,6 +64,7 @@ export default function RegisterStepOne({ navigation }) {
         })*/
     }
 
+    // for the form validation
     const isValidForm = () => {
         // all field have value
         if(!isValidObjField(userInfo)) return updateError('tout les champs sont requis', setErrorOne)
@@ -74,6 +82,7 @@ export default function RegisterStepOne({ navigation }) {
         return true
     }
 
+    // just a test function
     const testFormOne = () => {
         if(isValidForm()){
             // submit form 
@@ -89,7 +98,7 @@ export default function RegisterStepOne({ navigation }) {
                     style={styles.arc_logo}
                 />
             </View>
-            { errorOne ? <Text style={{ textAlign: 'center', color: '#000' }}> {errorOne} </Text> : null }
+            { errorOne ? <ErrorMessage error={errorOne} visible={true}/> : null }
             <FormInput
                 placeholder='Nom'
                 value={nom}
@@ -127,13 +136,17 @@ export default function RegisterStepOne({ navigation }) {
             />
             <CustButton
                 label="suivant"
-                //onPress={() => navigation.navigate('Etape 2/2')}
                 onPress={() => { //validate()
                     //testFormOne()
                     //else {alert("noumel")}
-                    /*if (isValidForm()) {*/ navigation.navigate('Etape 2/2', {
+                    /*if (isValidForm()) {* navigation.navigate('Etape 2/2', {
                         donor: userInfo.nom,
                     }) /*}*/
+                    isValidForm()
+                    ? navigation.navigate('Etape 2/2', {
+                        donor: userInfo.nom
+                    })
+                    : console.log("error occured on the first step form")
                     //create()
                 }}
             />

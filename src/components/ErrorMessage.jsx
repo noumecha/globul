@@ -13,7 +13,7 @@ const ErrorMessage = ({ error, visible }) => {
                 name="alert-circle" 
                 style={styles.errorIcon} 
                 color='#E42217'
-                size={16}
+                size={14}
             />
             <Text>
                 &nbsp;
