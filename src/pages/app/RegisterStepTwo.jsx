@@ -1,77 +1,132 @@
+// import react.
 import react, { useState } from 'react'
-import { View, TextInput, Image, Text } from 'react-native'
+// imports for components
+import { View, Image, Text } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from '../../styles';
 import CustButton from '../../components/CustButton';
 import SelectList from 'react-native-dropdown-select-list'
 import FormInput from '../../components/FormInput'
 import ErrorMessage from '../../components/ErrorMessage';
+// for handling : 
+import { doc, setDoc, addDoc, collection } from 'firebase/firestore'
+import { db } from '../../../config'
+import { PropTypes } from 'prop-types'
 
 export default function RegisterStepTwo({route}) 
 {
 
+    // validating the form input values
     const isValidObjField = (obj) => {
         return Object.values(obj).every(value => value.trim()) 
     }
 
+    // update the error message int the input form component
     const updateError = (error, stateUpdater) => {
         stateUpdater(error)
         setTimeout(() => {
             stateUpdater('')
         }, 3000)
     }
-
+    
+    // for the blood group
     const [selected, setSelected] = useState("");
+
+    // for teh userInfo
     const [userInfo, setUserInfo] = useState({
         contact: '',
         ville: '',
         password: '',
         passwordConfirm:'',
+        //bloodGroup: '',
     })
 
+    // the error state
     const [error, setError] = useState('')    
 
+    // catching the password verification
     const [passwordVisible, setPasswordVisible] = useState(true);
     const [passwordVisibleConfirm, setPasswordVisibleConfirm] = useState(true);
 
+
+    // default values for donor blood group
     const data = [
-        { key: '1', value: 'O-' },
-        { key: '2', value: 'O+' },
-        { key: '3', value: 'A+' },
-        { key: '4', value: 'A-' },
-        { key: '5', value: 'B-' },
-        { key: '6', value: 'B+' },
-        { key: '7', value: 'AB-' },
-        { key: '8', value: 'AB+' },
+        { key: 'O-', value: 'O-' },
+        { key: 'O+', value: 'O+' },
+        { key: 'A+', value: 'A+' },
+        { key: 'A-', value: 'A-' },
+        { key: 'B-', value: 'B-' },
+        { key: 'B+', value: 'B+' },
+        { key: 'AB-', value: 'AB-' },
+        { key: 'AB+', value: 'AB+' },
     ];
 
-    const { contact, ville, password, passwordConfirm} = userInfo
+    const [bloodGroup, setBloodGroup] = useState('')
+    const handleOnChangeTextBlood = (value) => {
+        setBloodGroup(value)
+    }
+    // userInfo step two
+    const { contact, ville, password, passwordConfirm } = userInfo
 
+    // handleOnChangeText on input form components
     const handleOnChangeText = (value, fieldName) => {
         setUserInfo({...userInfo, [fieldName]: value })
+    }
+
+    // for create new object in the db
+    function create () {
+        /*console.log(
+            'nom : ' + (route.params.donorName) +
+            'prenom : ' + route.params.donorSurname +
+            'email : ' + route.params.donorEmail +
+            'groupe_sanguin : ' + bloodGroup + 
+            'password : ' + userInfo.password + 
+            'sexe : ' + route.params.donorSexe + 
+            'ville : ' + userInfo.ville 
+        )*/
+        addDoc(collection(db, 'donor'), {
+            age : Number(route.params.donorAge),
+            contact : Number(userInfo.contact),
+            email : route.params.donorEmail,
+            groupe_sanguin : bloodGroup,
+            nom : route.params.donorName,
+            password : userInfo.password,
+            prenom : route.params.donorSurname,
+            sexe : route.params.donorSexe,
+            ville : userInfo.ville,
+        }).then(() => {
+            // data save successfully
+            console.log('data submitted successfully')
+        }).catch((error) => {
+            console.log(error)
+        })
     }
 
     const isValidForm = () => {
         // all field have value
         if(!isValidObjField(userInfo)) return updateError('tout les champs sont requis', setError)
         // if contact is not valid
-        if(!contact.trim() || contact.length < 9 ) return updateError('numero de telephne invalid', setError)
+        if(!contact.trim() || contact.length < 9 ) return updateError('numero de telephone invalid', setError)
         // if email is not valid 
         if(!ville.trim()) return updateError('Le champ ville est vide ', setError)
         // password validation 
         if(!password.trim() || password.length < 8) return updateError('le mot de passe doit avoir au moins 8 caractères', setError)
         // password confirm 
         if(password !== passwordConfirm) return updateError('les mots de passe ne sont pas identiques', setError)
+        // error on blood group
+        if(!bloodGroup.trim()) return updateError('Le groupe sanguin est manquant ', setError) 
+
+        return true
     } 
 
-    const submitForm = () => {
+    // for testing purposes only
+    /*const submitForm = () => {
         if(isValidForm()){
             // submit form 
             console.log(userInfo)
         }
-    }
-
-    console.log(userInfo)
+        //console.log(bloodGroup)
+    }*/
 
     return (
         <View style={styles.regForm}>
@@ -81,11 +136,6 @@ export default function RegisterStepTwo({route})
                     style={styles.arc_logo}
                 />
             </View>
-            <Text
-                style={styles.txtBtn}
-            >
-                {route.params.donor}
-            </Text>
             { error ? <ErrorMessage error={error} visible={true}/> : null }
             <FormInput
                 placeholder='Contact'
@@ -97,6 +147,7 @@ export default function RegisterStepTwo({route})
             <View style={{ marginTop: 5}}>
                 <SelectList
                     //onSelect={() => alert(selected)}
+                    onSelect={value => handleOnChangeTextBlood(value=selected)}
                     placeholder="Groupe Sanguin"
                     setSelected={setSelected}
                     arrowicon={<MaterialCommunityIcons name="chevron-down" size={26} color={'#fff'} />} 
@@ -148,7 +199,16 @@ export default function RegisterStepTwo({route})
             />
             <CustButton
                 style={styles.txtBtn}
-                onPress={submitForm}
+                onPress={
+                    //submitForm
+                    () => {
+                        isValidForm()
+                        ?
+                        create()
+                        :
+                        console.log('something went wrong')
+                    }
+                }
                 label="creer"
             />
         </View>

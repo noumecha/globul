@@ -50,20 +50,6 @@ export default function RegisterStepOne({ navigation }) {
         setUserInfo({...userInfo, [fieldName]: value })
     }
 
-    // for create new object in the db
-    function create () {
-        console.log(userInfo)
-        /*addDoc(collection(db, 'users'), {
-            userInfo : toString(username),
-            email: toString(email)
-        }).then(() => {
-            // data save successfully
-            console.log('data submitted successfully')
-        }).catch((error) => {
-            console.log(error)
-        })*/
-    }
-
     // for the form validation
     const isValidForm = () => {
         // all field have value
@@ -136,18 +122,16 @@ export default function RegisterStepOne({ navigation }) {
             />
             <CustButton
                 label="suivant"
-                onPress={() => { //validate()
-                    //testFormOne()
-                    //else {alert("noumel")}
-                    /*if (isValidForm()) {* navigation.navigate('Etape 2/2', {
-                        donor: userInfo.nom,
-                    }) /*}*/
+                onPress={() => {
                     isValidForm()
                     ? navigation.navigate('Etape 2/2', {
-                        donor: userInfo.nom
+                        donorName: userInfo.nom,
+                        donorSurname: userInfo.prenom,
+                        donorEmail: userInfo.email,
+                        donorAge : userInfo.age,
+                        donorSexe : userInfo.sexe
                     })
                     : console.log("error occured on the first step form")
-                    //create()
                 }}
             />
         </View>
