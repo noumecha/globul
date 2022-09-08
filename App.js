@@ -8,6 +8,9 @@ import React, { useState, useEffect, useMemo, useReducer } from 'react'
 import { View, ActivityIndicator } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import styles from './src/styles';
+// import firebase 
+import { firebase } from './config'
+import { setUserId } from 'firebase/analytics';
 
 export default function App() {
 
@@ -58,18 +61,46 @@ export default function App() {
 
   const authContext = useMemo(() => ({
     signIn: async(userEmail, userPassword) => {
-      //setUserToken('nmlivan')
-      //setIsLoading(false)
       let userToken
       userToken = null
-      if ( userEmail === "noumel" && userPassword === "noumel" ) {
-        try {
-          userToken = "nmlivan"
-          await AsyncStorage.setItem('userToken', userToken)
-        } catch (e) {
-          console.log(e)
-        }
-        console.log(userEmail + userPassword)
+      try {
+        // good function with the firebae auth
+        console.log('email: ' + userEmail + ' password: ' + userPassword)
+        firebase
+          .auth()
+          .signInWithEmailAndPassword( userEmail, userPassword)
+          .then((response) => {
+              const uid = response.user.uid
+              const usersRef = firebase.firestore().collection('users')
+              usersRef
+                  .doc(uid)
+                  .get()
+                  .then(firestoreDocument => {
+                      if(!firestoreDocument.exists) {
+                          alert('adresse email ou mot de passe incorrect')
+                          return
+                      }
+                      const user = firestoreDocument.data()
+                      alert('Connexion success!')
+                      //navigation.navigate('HomeScreen', { user })
+                  })
+                  .catch(e => {
+                      //alert(e)
+                      alert('addresse email ou mot de passe invalide a')
+                  })
+                  
+          })
+          .catch(e => {
+              //updateError(e, setError)
+              alert('addresse email ou mot de passe invalide b')
+              //alert(e)
+          })
+        userToken = firebase.auth().currentUser?.uid
+        //userToken = 'nml_ivan_237'
+        console.log('userToken : ' + userToken)
+        await AsyncStorage.setItem('userToken', userToken)
+      } catch (e) {
+        console.log(e)
       }
       dispatch({ type: 'LOGIN', id: userEmail, token: userToken })
     },
