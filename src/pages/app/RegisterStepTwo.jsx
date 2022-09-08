@@ -10,7 +10,7 @@ import FormInput from '../../components/FormInput'
 import ErrorMessage from '../../components/ErrorMessage';
 // for handling : 
 import { addDoc, collection } from 'firebase/firestore'
-import { db } from '../../../config'
+import { db, firebase } from '../../../config'
 import { PropTypes } from 'prop-types'
 
 export default function RegisterStepTwo({route, navigation}) 
@@ -84,7 +84,7 @@ export default function RegisterStepTwo({route, navigation})
             'sexe : ' + route.params.donorSexe + 
             'ville : ' + userInfo.ville 
         )*/
-        db
+         firebase
             .auth()
             .createUserWithEmailAndPassword(route.params.donorEmail, userInfo.password)
             .then((response) => {
@@ -107,14 +107,14 @@ export default function RegisterStepTwo({route, navigation})
                     .set(data)
                     .then(() => {
                         console.log('data store sucessfully')
-                        navigation.navigate('Connextion', {user : data})
+                        navigation.navigate('Connexion', {user : data})
                     })
                     .catch((error) => {
                         console.log('error with datas: ' + error)
                     })
             })
             .catch((error) => {
-                alert('error firebase: ' + error)
+                console.log('error firebase: ' + error)
             })
         /*addDoc(collection(db, 'donor'), {
             age : Number(route.params.donorAge),
