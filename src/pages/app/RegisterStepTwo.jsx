@@ -22,11 +22,11 @@ export default function RegisterStepTwo({route, navigation})
     }
 
     // update the error message int the input form component
-    const updateError = (error, stateUpdater) => {
-        stateUpdater(error)
+    const updateError = (e, stateUpdater) => {
+        stateUpdater(e)
         setTimeout(() => {
             stateUpdater('')
-        }, 3000)
+        }, 4000)
     }
     
     // for the blood group
