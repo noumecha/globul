@@ -9,8 +9,13 @@ export default function SettingsScreen()
 
     const { signOut } = useContext(AuthContext)
 
+    //const userEmail = takeEmail
+
     return (
         <View style={styles.container}>
+            <Text>
+                Email de l'user en cours : 
+            </Text>
             <Text>
                 Settings Screen
             </Text>

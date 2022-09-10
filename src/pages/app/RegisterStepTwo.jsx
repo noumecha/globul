@@ -59,6 +59,7 @@ export default function RegisterStepTwo({route, navigation})
         { key: 'B+', value: 'B+' },
         { key: 'AB-', value: 'AB-' },
         { key: 'AB+', value: 'AB+' },
+        { key: 'inconu', value: 'inconu' },
     ];
 
     const [bloodGroup, setBloodGroup] = useState('')
@@ -116,23 +117,6 @@ export default function RegisterStepTwo({route, navigation})
             .catch((error) => {
                 console.log('error firebase: ' + error)
             })
-        /*addDoc(collection(db, 'donor'), {
-            age : Number(route.params.donorAge),
-            contact : Number(userInfo.contact),
-            email : route.params.donorEmail,
-            groupe_sanguin : bloodGroup,
-            nom : route.params.donorName,
-            password : userInfo.password,
-            prenom : route.params.donorSurname,
-            sexe : route.params.donorSexe,
-            ville : userInfo.ville,
-        }).then(() => {
-            // data save successfully
-            console.log('data submitted successfully')
-            navigation.navigate('Connexion')
-        }).catch((error) => {
-            console.log(error)
-        })*/
     }
 
     const isValidForm = () => {

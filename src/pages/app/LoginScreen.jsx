@@ -62,10 +62,11 @@ export default function LoginScreen({ navigation })
     const [error, setError] = useState('')
 
     // for logging in with context
-    const { signIn } = useContext(AuthContext)
+    const { signIn,takeEmail } = useContext(AuthContext)
 
     const loginHandle = (email, password) => {
         signIn(email, password)
+        takeEmail(email)
     }
 
     // login directly using the firebase login function

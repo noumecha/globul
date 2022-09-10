@@ -61,9 +61,6 @@ export default function App() {
   const [loginState, dispatch] = React.useReducer(
     loginReducer, initialLoginState
   )
-  
-  // function taker : for taking value inside the firebase function 
-  const [take, setTake] = useState([])
 
   // the authentification context
   const authContext = useMemo(() => ({
@@ -90,12 +87,11 @@ export default function App() {
                       }
                       const user = firestoreDocument.data()
                       alert('Connexion success!')
-                      setTake(user)
                       //navigation.navigate('HomeScreen', { user })
                   })
                   .catch(e => {
                       //alert(e)
-                      alert('addresse email ou mot de passe invalide a')
+                      alert('erreur de syntaxe')
                   })
                   
           })
@@ -106,7 +102,6 @@ export default function App() {
           })
         userToken = firebase.auth().currentUser?.uid
         //userToken = 'nml_ivan_237'
-        console.log('take : ' + take)
         await AsyncStorage.setItem('userToken', userToken)
       } catch (e) {
         console.log(e)
@@ -128,6 +123,10 @@ export default function App() {
     signUp: () => {
       //setUserToken('nmlivan')
       //setIsLoading(false)
+    },
+    // for test 
+    takeEmail: (e) => {
+      console.log('email : ' + e)
     },
   }), [])
 
@@ -164,7 +163,6 @@ export default function App() {
       ): 
         <AuthStack/>
       }
-      
     </AuthContext.Provider>
   )
 }

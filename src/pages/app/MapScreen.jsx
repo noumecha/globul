@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from '../../styles'
 import { View , Text } from 'react-native'
 import MapView from 'react-native-maps'
 import { StatusBar } from 'expo-status-bar'
 //import CustButton from '../../components/CustButton'
 import SquareButton from '../../components/SquareButton'
+import { AuthContext } from '../../components/context';
 
 export default function MapScreen()
 {
