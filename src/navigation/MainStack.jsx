@@ -40,9 +40,9 @@ export default function MainStack()
             name="Welcome"
             component={WelcomeScreen}
             options={{
-              tabBarLabel: 'Donations',
+              tabBarLabel: 'Demandes',
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="bell" color={color} size={26} />
+                <MaterialCommunityIcons name="water-alert-outline" color={color} size={26} />
               ),
             }}
           />
@@ -50,9 +50,9 @@ export default function MainStack()
             name="Donate"
             component={DonateScreen}
             options={{
-              tabBarLabel: 'new donate',
+              tabBarLabel: 'Dons',
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="plus-circle" color={color} size={26} />
+                <MaterialCommunityIcons name="blood-bag" color={color} size={26} />
               ),
             }}
           />
@@ -60,9 +60,9 @@ export default function MainStack()
             name="Map"
             component={MapScreen}
             options={{
-              tabBarLabel: 'Mapping',
+              tabBarLabel: 'Voir',
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="map" color={color} size={26} />
+                <MaterialCommunityIcons name="crosshairs" color={color} size={26} />
               ),
             }}
           />
@@ -70,7 +70,7 @@ export default function MainStack()
             name="Settings"
             component={SettingsScreen}
             options={{
-              tabBarLabel: 'Profile',
+              tabBarLabel: 'Profil',
               tabBarIcon: ({ color }) => (
                 <MaterialCommunityIcons name="account" color={color} size={26} />
               ),

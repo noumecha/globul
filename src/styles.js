@@ -67,6 +67,11 @@ export default StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
   },
+  reg_txtSquare: {
+    color: 'white',
+    fontSize: 12,
+    textAlign: 'center',
+  },
   regForm : {
     flex: 2,
     justifyContent: 'center',
@@ -84,6 +89,37 @@ export default StyleSheet.create({
   /*
   * end styling register screen
   */
+ /**
+  *  styling map screen
+  */
+  mapContainer: {
+    flex: 0.65,
+    width: '100%',
+  },
+  mapHeader: {
+    //height: '15%',
+    flex: 0.08,
+    top: 0,
+    borderTopRightRadius: 30,
+    borderTopLeftRadius: 30,
+    width: '100%',
+    fontSize: 16,
+    backgroundColor: '#E42217',
+    color: 'white',
+    textAlign: 'center',
+    paddingTop: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  mapFilter: {
+    flex: 0.1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  /**
+   *  end styling map screen
+   */
   /*
   * this following is for container login screen
   */
@@ -220,6 +256,13 @@ export default StyleSheet.create({
     marginTop: 20,
     padding: 10,
     borderRadius: 20,
+  },
+  txtBtnSquare: {
+    backgroundColor: '#E42217',
+    fontSize: 12,
+    padding: 10,
+    width: 'auto',
+    marginLeft: 3,
   },
   // big icons style 
   iconBig : {

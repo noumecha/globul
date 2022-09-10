@@ -35,6 +35,7 @@
     "react-native-form-component": "^2.4.0",
     "react-native-gesture-handler": "~2.2.1",
     "react-native-ico-material-design": "^1.5.3",
+    "react-native-maps": "^1.3.1",
     "react-native-pager-view": "5.4.15",
     "react-native-paper": "^4.12.4",
     "react-native-reanimated": "~2.8.0",
@@ -43,8 +44,7 @@
     "react-native-vector-icons": "^9.2.0",
     "react-native-viewpager": "^0.2.13",
     "react-native-web": "0.17.7",
-    "typescript": "^4.7.4",
-    "undefined": "firebase/auth"
+    "typescript": "^4.7.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

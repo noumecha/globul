@@ -17,12 +17,14 @@ export default function App() {
   //const [isLoading, setIsLoading] = useState(true)
   //const [userToken, setUserToken] = useState(false)
 
+  // initial state values
   const initialLoginState = {
     isLoading: true,
     userToken: null,
     userName: null,
   }
 
+  // switch case for my tokening state
   const loginReducer = (prevState, action) => {
     switch (action.type) {
       case 'RETRIEVE_TOKEN':
@@ -55,11 +57,17 @@ export default function App() {
     }
   }
 
+  // the login state and reducer
   const [loginState, dispatch] = React.useReducer(
     loginReducer, initialLoginState
   )
+  
+  // function taker : for taking value inside the firebase function 
+  const [take, setTake] = useState([])
 
+  // the authentification context
   const authContext = useMemo(() => ({
+    // for the logiing 
     signIn: async(userEmail, userPassword) => {
       let userToken
       userToken = null
@@ -82,6 +90,7 @@ export default function App() {
                       }
                       const user = firestoreDocument.data()
                       alert('Connexion success!')
+                      setTake(user)
                       //navigation.navigate('HomeScreen', { user })
                   })
                   .catch(e => {
@@ -97,13 +106,14 @@ export default function App() {
           })
         userToken = firebase.auth().currentUser?.uid
         //userToken = 'nml_ivan_237'
-        console.log('userToken : ' + userToken)
+        console.log('take : ' + take)
         await AsyncStorage.setItem('userToken', userToken)
       } catch (e) {
         console.log(e)
       }
       dispatch({ type: 'LOGIN', id: userEmail, token: userToken })
     },
+    // for the signout
     signOut: async() => {
       //setUserToken(null)
       //setIsLoading(false)
@@ -114,6 +124,7 @@ export default function App() {
       }
       dispatch({ type: 'LOGOUT' })
     },
+    // for ther registering
     signUp: () => {
       //setUserToken('nmlivan')
       //setIsLoading(false)
