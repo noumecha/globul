@@ -164,6 +164,14 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
   },
+  containerSetInput: {
+    flex: 0.6,
+    width: '100%',
+    marginTop: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+  },
   // input icon style
   inputIcon: {
     padding: 0,
