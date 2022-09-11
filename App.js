@@ -3,7 +3,7 @@ import 'react-native-gesture-handler'
 //import AppTest from './src/pages/screens/tests/AppTest'
 import MainStack from "./src/navigation/MainStack";
 import AuthStack from "./src/navigation/AuthStack";
-import { AuthContext, DataContext } from "./src/components/context"
+import { AuthContext, EmailContext, pwdContext } from "./src/components/context"
 import React, { useState, useEffect, useMemo, useReducer } from 'react'
 import { View, ActivityIndicator } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -97,8 +97,8 @@ export default function App() {
             alert('erreur 2 : ' + e)
             //alert(e)
           })
-        userToken = firebase.auth().currentUser?.uid
-        //userToken = 'nml_ivan_237'
+        //userToken = firebase.auth().currentUser?.uid
+        userToken = 'nml_ivan_237'
         await AsyncStorage.setItem('userToken', userToken)
       } catch (e) {
         console.log(e)
@@ -129,8 +129,8 @@ export default function App() {
   }), [])
 
   // data context
-  const [userEmail, setUserEmail] = useState()
-
+  const [userEmail, setUserEmail] = useState('default@gmail.com')
+  const [pwd, setPwd] = useState('defaul_pwd')
   // use effect for retrieving token 
   useEffect(() => {
     setTimeout(async() => {
@@ -161,13 +161,17 @@ export default function App() {
     //<MainStack/>
     <AuthContext.Provider value={authContext}>
       { loginState.userToken !== null ? (
-        <DataContext.Provider value={{userEmail, setUserEmail}}>
-          <MainStack/>
-        </DataContext.Provider>
+        <EmailContext.Provider value={{userEmail, setUserEmail}}>
+          <pwdContext.Provider value={{pwd , setPwd}}>
+            <MainStack/>
+          </pwdContext.Provider>
+        </EmailContext.Provider>
       ): 
-        <DataContext.Provider value={{userEmail, setUserEmail}}>
-          <AuthStack/>
-        </DataContext.Provider>
+        <EmailContext.Provider value={{userEmail, setUserEmail}}>
+          <pwdContext.Provider value={{pwd , setPwd}}>
+            <AuthStack/>
+          </pwdContext.Provider>
+        </EmailContext.Provider>
       }
     </AuthContext.Provider>
   )

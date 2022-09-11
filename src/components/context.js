@@ -1,9 +1,13 @@
 import React from 'react'
 
 const AuthContext = React.createContext()
-const DataContext = React.createContext({
+const EmailContext = React.createContext({
     userEmail: '',
     setUserEmail: (em) => {},
 })
+const pwdContext = React.createContext({
+    pwd: '',
+    setPwd: (pwd) => {},
+})
 
-export { AuthContext, DataContext }
+export { AuthContext, EmailContext, pwdContext }

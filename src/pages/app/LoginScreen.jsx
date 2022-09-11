@@ -7,7 +7,7 @@ import CustButton from '../../components/CustButton';
 //import ErrorMessage from '../../components/ErrorMessage';
 import styles from '../../styles'
 import { firebase } from '../../../config'
-import { AuthContext , DataContext } from '../../components/context';
+import { AuthContext , EmailContext, pwdContext } from '../../components/context';
 
 const image = require('../../assets/logo2.jpg')
 
@@ -61,6 +61,12 @@ export default function LoginScreen({ navigation })
     // the error state
     const [error, setError] = useState('')
 
+    // retrieving the data from the firebase dataBase
+    const { setUserEmail } = useContext(EmailContext)
+    setUserEmail(email)
+
+    const { setPwd } = useContext(pwdContext)
+    setPwd(password)
     // for logging in with context
     const { signIn } = useContext(AuthContext)
 
@@ -103,9 +109,6 @@ export default function LoginScreen({ navigation })
             })
     }
 
-    // retrieving the data from the firebase dataBase
-    const { setUserEmail } = useContext(DataContext)
-    setUserEmail(email)
     return(
         <View
             style={styles.container}

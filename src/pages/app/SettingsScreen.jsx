@@ -3,7 +3,7 @@ import styles from '../../styles'
 import { View , Text, Image } from 'react-native'
 import CustButton from '../../components/CustButton'
 import FormInput from '../../components/FormInput'
-import { AuthContext,DataContext } from '../../components/context'
+import { AuthContext,EmailContext, pwdContext } from '../../components/context'
 import { StatusBar } from 'expo-status-bar'
 
 export default function SettingsScreen()
@@ -12,7 +12,8 @@ export default function SettingsScreen()
     const { signOut } = useContext(AuthContext)
 
     // data context
-    const { userEmail } = useContext(DataContext)
+    const { userEmail } = useContext(EmailContext)
+    const { pwd } = useContext(pwdContext)
 
     // handling passwords
     const [passwordVisible, setPasswordVisible] = useState(true);
@@ -32,7 +33,10 @@ export default function SettingsScreen()
                     style={styles.arc_logo}
                 />
                 <Text style={styles.text}>
-                    utilisateur : {userEmail}
+                    utilisateur : {userEmail} 
+                </Text>
+                <Text style={styles.text}>
+                    pwd : {pwd} 
                 </Text>
             </View>
             <View style={styles.containerSetInput}>
