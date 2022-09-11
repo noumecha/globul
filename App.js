@@ -129,10 +129,9 @@ export default function App() {
   }), [])
 
   // data context
-  const dataContext = {
-    name: 'noumel',
-    code: 'JS'
-  }
+  const [userEmail, setUserEmail] = useState()
+
+  // use effect for retrieving token 
   useEffect(() => {
     setTimeout(async() => {
       //setIsLoading(false)
@@ -162,11 +161,13 @@ export default function App() {
     //<MainStack/>
     <AuthContext.Provider value={authContext}>
       { loginState.userToken !== null ? (
-        <DataContext.Provider value={dataContext}>
+        <DataContext.Provider value={{userEmail, setUserEmail}}>
           <MainStack/>
         </DataContext.Provider>
       ): 
-        <AuthStack/>
+        <DataContext.Provider value={{userEmail, setUserEmail}}>
+          <AuthStack/>
+        </DataContext.Provider>
       }
     </AuthContext.Provider>
   )

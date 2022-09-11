@@ -12,7 +12,7 @@ export default function SettingsScreen()
     const { signOut } = useContext(AuthContext)
 
     // data context
-    const { name } = useContext(DataContext)
+    const { userEmail } = useContext(DataContext)
 
     // handling passwords
     const [passwordVisible, setPasswordVisible] = useState(true);
@@ -32,7 +32,7 @@ export default function SettingsScreen()
                     style={styles.arc_logo}
                 />
                 <Text style={styles.text}>
-                    Coder : {name}
+                    utilisateur : {userEmail}
                 </Text>
             </View>
             <View style={styles.containerSetInput}>

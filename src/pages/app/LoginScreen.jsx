@@ -1,4 +1,4 @@
-import react, { useState, useContext } from 'react'
+import react, { useState, useContext,useEffect } from 'react'
 import { Text, View, ImageBackground, TextInput, Image } from 'react-native'
 //import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 //import { ScrollView } from 'react-native-gesture-handler'
@@ -7,7 +7,7 @@ import CustButton from '../../components/CustButton';
 //import ErrorMessage from '../../components/ErrorMessage';
 import styles from '../../styles'
 import { firebase } from '../../../config'
-import { AuthContext } from '../../components/context';
+import { AuthContext , DataContext } from '../../components/context';
 
 const image = require('../../assets/logo2.jpg')
 
@@ -64,6 +64,7 @@ export default function LoginScreen({ navigation })
     // for logging in with context
     const { signIn } = useContext(AuthContext)
 
+    // handling logging
     const loginHandle = (email, password) => {
         signIn(email, password)
     }
@@ -102,7 +103,9 @@ export default function LoginScreen({ navigation })
             })
     }
 
-
+    // retrieving the data from the firebase dataBase
+    const { setUserEmail } = useContext(DataContext)
+    setUserEmail(email)
     return(
         <View
             style={styles.container}
