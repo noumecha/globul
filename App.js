@@ -129,8 +129,8 @@ export default function App() {
   }), [])
 
   // data context
-  const [userEmail, setUserEmail] = useState('default@gmail.com')
-  const [pwd, setPwd] = useState('defaul_pwd')
+  const [userEmail, setUserEmail] = useState()
+  const [pwd, setPwd] = useState()
   // use effect for retrieving token 
   useEffect(() => {
     setTimeout(async() => {
