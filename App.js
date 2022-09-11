@@ -8,6 +8,7 @@ import React, { useState, useEffect, useMemo, useReducer } from 'react'
 import { View, ActivityIndicator } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import styles from './src/styles';
+import LottieView from 'lottie-react-native';
 // import firebase 
 import { firebase } from './config'
 import { setUserId } from 'firebase/analytics';
@@ -143,14 +144,16 @@ export default function App() {
         console.log(e)
       }
       dispatch({ type: 'RETRIEVE_TOKEN', token: userToken })
-    }, 3000)
+    }, 5000)
   }, [])
 
   if (loginState.isLoading) {
     return (
       <View style={styles.loadContainer}>
-        <ActivityIndicator
-          size="large"
+        <LottieView
+          source={require('./src/assets/blood-drop.json')}
+          loop
+          autoPlay
         />
       </View>
     )
