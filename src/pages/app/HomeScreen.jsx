@@ -1,64 +1,68 @@
 import React, { useState } from 'react'
 import styles from '../../styles'
-import { View , Text, TextInput } from 'react-native'
-import { doc, setDoc, addDoc, collection } from 'firebase/firestore'
-import { db } from '../../../config'
-import { PropTypes } from 'prop-types'
+import { View , Text, TextInput, Image } from 'react-native'
+//import { doc, setDoc, addDoc, collection } from 'firebase/firestore'
+//import { db } from '../../../config'
+//import { PropTypes } from 'prop-types'
+import { StyleSheet } from 'react-native';
+import AppIntroSlider from 'react-native-app-intro-slider'
+import { StatusBar } from 'expo-status-bar'
 
 export default function HomeScreen()
-{
-    const [username, setUsername] = useState("spaker")
-    const [email, setEmail] = useState("spaker@gmail.com")
-
-    function create () {
-        console.log('username : ' + username + ' email : ' + email)
-        addDoc(collection(db, 'users'), {
-            username: toString(username),
-            email: toString(email)
-        }).then(() => {
-            // data save successfully
-            console.log('data submitted successfully')
-        }).catch((error) => {
-            console.log(error)
-        })
+{ 
+    const slides = [
+        {
+          key: 1,
+          title: 'Title 1',
+          text: 'Description.\nSay something cool',
+          image: require('../../assets/user.png'),
+          backgroundColor: '#E42217',
+        },
+        {
+          key: 2,
+          title: 'Title 2',
+          text: 'Other cool stuff',
+          image: require('../../assets/logo2.jpg'),
+          backgroundColor: '#E42217',
+        },
+        {
+          key: 3,
+          title: 'Rocket guy',
+          text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
+          image: require('../../assets/donor.png'),
+          backgroundColor: '#E42217',
+        }
+    ];
+    const [showSlider, setShowSlider] = useState(true)
+    // get item to be render : 
+    const getItem = (item) => {
+        return  <View style={styles.slide}>
+            <Text style={styles.title}>{item.title}</Text>
+            <Image source={item.image} />
+            <Text style={styles.text}>{item.text}</Text>
+      </View>
     }
-
     return (
         <View style={styles.container}>
-            <Text style={styles.headerContainer}> Home Screen Crud firebase </Text>
-            <TextInput 
-                value={username} 
-                //onChange={(username) => {setUsername(username)}} 
-                onChangeText={setUsername}
-                placeholder='Username' 
-                placeholderTextColor={'#E42217'} 
-                style={styles.txtInput}
+            <StatusBar
+                style='auto'
             />
-            <TextInput 
-                value={email} 
-                //onChange={e => {setEmail(e.target.value)}} 
-                onChangeText={setEmail}
-                placeholder='Email' 
-                placeholderTextColor={'#E42217'} 
-                style={styles.txtInput}
-            />
-            <Text 
-                style={styles.txtBtn}
-                onPress={() => {
-                    create()
-                }}
-            >
-                Send Data
+            <Text style={styles.mapHeader}>
+                Home Screen
             </Text>
+            <View style={styles.containerSetInput}>
+                {
+                    showSlider 
+                    ? 
+                    <AppIntroSlider
+                        data={slides}
+                        renderItem={getItem}
+                    />
+                    :
+                    <Text>home Content</Text>
+                }
+            </View>
         </View>
         
     )
-}
-HomeScreen.propTypes = {
-    username: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-}
-HomeScreen.defaultProps = {
-    username: 'noumel',
-    email: 'noumel@gmail.com',
 }
