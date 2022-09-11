@@ -23,12 +23,14 @@ export default function MapScreen()
             />
             <View style={styles.mapFilter}>
                 <SquareButton label="Tout"/>
+                <SquareButton label="Demandes"/>
                 <SquareButton label="A+"/>
                 <SquareButton label="A-"/>
                 <SquareButton label="B+"/>
                 <SquareButton label="B-"/>
             </View>
-            <View style={styles.mapFilter}>    
+            <View style={styles.mapFilter}> 
+                <SquareButton label="Donneurs"/>   
                 <SquareButton label="AB+"/>
                 <SquareButton label="AB-"/>
                 <SquareButton label="O-"/>

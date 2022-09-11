@@ -149,6 +149,15 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
   },
+  arc_settings: {
+    flex: 0.25,
+    borderTopRightRadius: 30,
+    borderTopLeftRadius: 30,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+  },
   arc_logo: {
     height: 50,
     borderRadius: 50,
@@ -165,7 +174,7 @@ export default StyleSheet.create({
     backgroundColor: 'white',
   },
   containerSetInput: {
-    flex: 0.6,
+    flex: 0.5,
     width: '100%',
     marginTop: 0,
     justifyContent: 'center',
