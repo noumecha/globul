@@ -140,7 +140,7 @@ export default function SettingsScreen()
             <View style={styles.containerSetInput}>
                 { error ? <ErrorMessage error={error} visible={true}/> : null }
                 <FormInput
-                    placeholder={userEmail}
+                    placeholder="Changer l'addrese mail"
                     value={newEmail}
                     onChangeText={value => handleOnChangeText(value, 'newEmail')}
                     iconName='mail'
@@ -154,7 +154,7 @@ export default function SettingsScreen()
                     keyboardType='number-pad'
                 />
                 <FormInput
-                    placeholder={pwd}
+                    placeholder='Nouveau mot de passe'
                     value={newPassword}
                     onChangeText={value => handleOnChangeText(value, 'newPassword')}
                     secureTextEntry={passwordVisible}
@@ -162,7 +162,7 @@ export default function SettingsScreen()
                     onPress={() => setPasswordVisible(!passwordVisible)}
                 />
                 <FormInput
-                    placeholder={pwd}
+                    placeholder='Confirmer le mot de passe'
                     value={newPasswordConfirm}
                     onChangeText={value => handleOnChangeText(value, 'newPasswordConfirm')}
                     secureTextEntry={passwordVisibleConfirm}
@@ -170,7 +170,7 @@ export default function SettingsScreen()
                     onPress={() => setPasswordVisibleConfirm(!passwordVisibleConfirm)}
                 />
                 <FormInput
-                    placeholder={todos.ville}
+                    placeholder='entrez la nouvelle Ville'
                     value={newVille}
                     onChangeText={value => handleOnChangeText(value, 'newVille')}
                     iconName='map-marker'

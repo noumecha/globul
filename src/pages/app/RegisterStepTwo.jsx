@@ -38,7 +38,6 @@ export default function RegisterStepTwo({route, navigation})
         ville: '',
         password: '',
         passwordConfirm:'',
-        //bloodGroup: '',
     })
 
     // the error state
