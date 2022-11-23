@@ -22,7 +22,7 @@ export default function DonateScreen()
             </Text>
             <View style={styles.arc_settings}>
                 <Image
-                    source={require('../../assets/user.png')}
+                    source={require('../../assets/donor.png')}
                     style={styles.arc_logo}
                 />
                 <Text style={styles.text}>
@@ -32,9 +32,13 @@ export default function DonateScreen()
                     contact : todos.contact
                 </Text>
             </View>
+            <CustButton
+                label="creer un don"
+            />
             <View style={styles.containerSetInput}>
                 <Text>
-                    donate content
+                    Aucun don en cours, appuyer sur "creer un don" 
+                    pour devenir donneur
                 </Text>
             </View>
             <CustButton

@@ -1,6 +1,15 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  // slider :
+  slide: {
+    //bottom: 0,
+    flex: 1,
+    backgroundColor: "#000",
+    justifyContent: "space-around",
+    alignItems: "center",
+    paddingBottom: 100,
+  },
   // errror message : 
   errorText: {
     color: 'white',
@@ -17,6 +26,13 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },  
+  // HomeScreen Container : 
+  HomeContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    //backgroundColor: '#E42217'
   },
   // default container
   container: {

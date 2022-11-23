@@ -1,68 +1,81 @@
 import React, { useState } from 'react'
 import styles from '../../styles'
-import { View , Text, TextInput, Image } from 'react-native'
+import { View ,ScrollView, Text, Image } from 'react-native'
 //import { doc, setDoc, addDoc, collection } from 'firebase/firestore'
 //import { db } from '../../../config'
 //import { PropTypes } from 'prop-types'
-import { StyleSheet } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider'
-import { StatusBar } from 'expo-status-bar'
+import {renderSlide} from '../../components/renderSlide'
+import CustButton from '../../components/CustButton'
 
 export default function HomeScreen()
 { 
     const slides = [
         {
           key: 1,
-          title: 'Title 1',
-          text: 'Description.\nSay something cool',
-          image: require('../../assets/user.png'),
+          title: 'Devenez un héro en sauvant des vies !',
+          text: 'Une application mobile pour trouver des donneurs et faire des demandes de dons',
+          image: require('../../assets/bg_home/don_2.jpg'),
           backgroundColor: '#E42217',
         },
         {
           key: 2,
-          title: 'Title 2',
-          text: 'Other cool stuff',
-          image: require('../../assets/logo2.jpg'),
+          title: 'Une goutte peut sauver une vie',
+          text: 'Trouver des donneurs compatibles et prenez contact pour un rendez-vous',
+          image: require('../../assets/bg_home/don_4.jpg'),
           backgroundColor: '#E42217',
         },
         {
           key: 3,
-          title: 'Rocket guy',
-          text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
-          image: require('../../assets/donor.png'),
+          title: 'Trouver des donneurs à proximité de votre position',
+          text: 'Rechercher rapidement des donneurs dans votre région sans vous déplacer',
+          image: require('../../assets/bg_home/don_5.jpg'),
+          backgroundColor: '#E42217',
+        },
+        {
+          key: 4,
+          title: 'Passer un appel direct au donneurs potentiel',
+          text: 'Rechercher rapidement des donneurs dans votre région sans vous déplacer',
+          image: require('../../assets/bg_home/don_3.png'),
           backgroundColor: '#E42217',
         }
     ];
     const [showSlider, setShowSlider] = useState(true)
-    // get item to be render : 
-    const getItem = (item) => {
-        return  <View style={styles.slide}>
-            <Text style={styles.title}>{item.title}</Text>
-            <Image source={item.image} />
-            <Text style={styles.text}>{item.text}</Text>
-      </View>
+
+    const onDone = () => {
+        setShowSlider(true)
     }
+    const onSkip = () => {
+        setShowSlider(true)
+    }
+
     return (
-        <View style={styles.container}>
-            <StatusBar
-                style='auto'
-            />
-            <Text style={styles.mapHeader}>
-                Home Screen
-            </Text>
-            <View style={styles.containerSetInput}>
+        //<ScrollView>
+            <View style={styles.HomeContainer}>
                 {
                     showSlider 
                     ? 
-                    <AppIntroSlider
-                        data={slides}
-                        renderItem={getItem}
-                    />
+                        <View style={styles.HomeContainer}>
+                            <Text>home Content</Text>
+                            <CustButton
+                                label="Description du projet"
+                                onPress={() => {
+                                    setShowSlider(false)
+                                    //console.log(slides)
+                                }}
+                            />
+                        </View>
                     :
-                    <Text>home Content</Text>
+                        <AppIntroSlider
+                            data={slides}
+                            onSkip={onSkip}
+                            onDone={onDone}
+                            showPrevButton={true}
+                            bottomButton
+                            renderItem={renderSlide}
+                        />
                 }
-            </View>
-        </View>
-        
+            </View> 
+        //</ScrollView>
     )
 }

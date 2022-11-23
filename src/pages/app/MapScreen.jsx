@@ -51,7 +51,7 @@ export default function MapScreen()
             >
                 <Marker
                     coordinate={{ latitude: 3.8666632/*text.coords.latitude*/, longitude: 11.5166646/*text.coords.longitude*/ }}
-                    title="Default Location"
+                    title="Voci votre position"
                 >
                 </Marker>
             </MapView>

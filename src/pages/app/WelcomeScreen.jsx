@@ -21,19 +21,20 @@ export default function WelcomeScreen()
             </Text>
             <View style={styles.arc_settings}>
                 <Image
-                    source={require('../../assets/user.png')}
+                    source={require('../../assets/donneur.jpg')}
                     style={styles.arc_logo}
                 />
                 <Text style={styles.text}>
                     utilisateur : {userEmail} 
                 </Text>
-                <Text style={styles.text}>
-                    contact : todos.contact
-                </Text>
             </View>
+            <CustButton
+                label="creer une demande"
+            />
             <View style={styles.containerSetInput}>
                 <Text>
-                    hope content
+                    Aucune demande en cours "appuyer sur Creer une demande"
+                    pour effectuer une demande de don
                 </Text>
             </View>
             <CustButton
